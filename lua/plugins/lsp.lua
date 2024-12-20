@@ -33,9 +33,6 @@ return {
   -- Mason Mangement
   {
     "williamboman/mason.nvim",
-    dependencies = {
-      { "williamboman/mason-lspconfig.nvim" },
-    },
     lazy = false,
     config = function()
       require("mason").setup()
@@ -45,6 +42,9 @@ return {
   -- Mason
   {
     "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "williamboman/mason.nvim"
+    },
     config = function()
       local lsp_config = require("config.lsp").mason_lspconfig
 
