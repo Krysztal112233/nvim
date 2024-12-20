@@ -11,12 +11,40 @@ return {
   -- Tab bar
   {
     'romgrk/barbar.nvim',
-    lazy = false,
+    event = "VeryLazy",
     dependencies = {
       'lewis6991/gitsigns.nvim',     -- for git status
       'nvim-tree/nvim-web-devicons', -- for file icons
     },
-    init = function() vim.g.barbar_auto_setup = false end,
+
+    -- Disable auto setup
+    init = function()
+      vim.g.barbar_auto_setup = false -- disable auto-setup
+    end,
+
+    -- Custom `babar`
+    config = function()
+      require("barbar").setup {
+        auto_hide = false,
+        tabpages = true,
+        icons = {
+          -- Add diagnostics to tab bar
+          diagnostics = {
+            [vim.diagnostic.severity.ERROR] = { enabled = true, icon = 'ﬀ' },
+            [vim.diagnostic.severity.WARN] = { enabled = false },
+            [vim.diagnostic.severity.INFO] = { enabled = false },
+            [vim.diagnostic.severity.HINT] = { enabled = true },
+          },
+
+          -- Add git signs to tab bar
+          gitsigns = {
+            added = { enabled = true, icon = '+' },
+            changed = { enabled = true, icon = '~' },
+            deleted = { enabled = true, icon = '-' },
+          },
+        }
+      }
+    end
   },
 
   -- Fuzzy file finder
