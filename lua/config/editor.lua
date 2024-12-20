@@ -8,6 +8,9 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 
+-- Enable `.editorconfig`
+vim.g.editorconfig = true
+
 -- Apply colorscheme based on the time of day
 local function apply_colorscheme()
     local hour = tonumber(os.date("%H"))
