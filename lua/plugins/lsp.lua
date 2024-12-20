@@ -4,7 +4,6 @@ return {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-      "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -30,7 +29,7 @@ return {
     end,
   },
 
-  -- Mason Mangement
+  -- Mason
   {
     "williamboman/mason.nvim",
     lazy = false,
@@ -39,7 +38,7 @@ return {
     end
   },
 
-  -- Mason
+  -- Mason lsp config
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
@@ -52,6 +51,24 @@ return {
         ensure_installed = lsp_config.ensure_installed,
         automatic_installation = lsp_config.ensure_installed,
       }
+    end
+  },
+
+  -- nvim lsp config
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim"
+    },
+    lazy = false,
+
+    config = function()
+      local servers = require("config.lsp").servers
+      for server, config in pairs(servers) do
+        require("lspconfig")[server].setup({
+          settings = config,
+        })
+      end
     end
   },
 
@@ -68,6 +85,7 @@ return {
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
     },
+
     opts = function()
       -- Initialized basic nvim-metals configuration
       local metals_config = require("metals").bare_config()
