@@ -1,4 +1,4 @@
--- System requirment checking
+-- System requirement checking
 
 local model = {}
 
