@@ -10,6 +10,9 @@ require("config.mapping")
 -- Apply plugin management
 require("config.lazy")
 
+-- Apply editor settings
+require("config.editor")
+
 -- Apply misc configurations
 require("config.misc")
 
