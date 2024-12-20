@@ -5,6 +5,7 @@ module.servers = {
     bashls = {},
     rust_analyzer = {},
     jsonls = {},
+    taplo = {},
     gopls = {},
     lua_ls = {
         Lua = {
