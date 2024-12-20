@@ -6,7 +6,6 @@ module.mason_lspconfig = {
     "lua_ls",
     "bashls",
     "jsonls",
-    "metals"
   },
   automatic_installation = true,
 }
