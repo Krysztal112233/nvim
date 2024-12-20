@@ -23,8 +23,51 @@ return {
                     end,
                 },
 
+                -- Enable `ghost_text`
+                -- For completion preview
+                experimental = {
+                    ghost_text = true,
+                },
+
                 -- Setting order of completion sources
-                sources = require("config.lsp").cmp_sources
+                sources = require("config.lsp").cmp_sources,
+
+                -- lunar schema
+                mapping = {
+                    ['<CR>'] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            if luasnip.expandable() then
+                                luasnip.expand()
+                            else
+                                cmp.confirm({
+                                    select = true,
+                                })
+                            end
+                        else
+                            fallback()
+                        end
+                    end),
+
+                    ["<Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        elseif luasnip.locally_jumpable(1) then
+                            luasnip.jump(1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        elseif luasnip.locally_jumpable(-1) then
+                            luasnip.jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                },
             })
         end,
     },

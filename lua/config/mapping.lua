@@ -10,7 +10,13 @@ opt.tabstop = 4
 
 -- Misc function mapping
 remapping("n", "<leader>?", "<cmd>WhichKey<cr>",
-    { desc = "Open `WhichKey`'s window'" }) -- `WhichKey`
+    { desc = "Open `WhichKey` window'" }) -- Open `WhichKey` window
+remapping("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+    { desc = "Find text in current buffer with fuzzy way" })
+remapping("n", "<leader>ff", "<cmd>Telescope find_files<cr>",
+    { desc = "Open `Telescope` window" }) -- Open `Telescope` window
+remapping("n", "<leader>fb", "<cmd>Telescope buffers<cr>",
+    { desc = "Open buffer selector" })
 
 -- Window actions
 remapping("n", "<leader>wj", "<C-w>j",
@@ -29,7 +35,7 @@ remapping("n", "<leader>wc", "<cmd>bd <cr>",
 -- File actions
 remapping("n", "<C-s>", "<cmd>w<cr>",
     { desc = "Save current buffer" })
-remapping("n", "<C-s>a", "<cmd>wa<cr>",
+remapping("n", "<C-S-s>", "<cmd>wa<cr>",
     { desc = "Save all buffer" })
 remapping("n", "<C-q>", "<cmd>xa<cr>",
     { desc = "Save all buffer, and exist nvim" })
@@ -37,25 +43,25 @@ remapping("n", "<C-q>", "<cmd>xa<cr>",
 -- Terminal mappings
 -- Open terminal
 remapping("n", "<C-t>t", "<cmd>ToggleTerm size = 20, direction=horizontal start_in_insert=true <cr>",
-    { desc = "Open terminal at bottom" }) -- Bottom terminal
+    { desc = "Open terminal at bottom" })   -- Bottom terminal
 remapping("n", "<C-t>f", "<cmd>ToggleTerm  direction=float<cr>",
     { desc = "Open terminal in floating" }) -- Floating terminal
 -- Close terminal
 remapping("t", "<C-t>t", "<cmd>ToggleTerm size = 20, direction=horizontal start_in_insert=true <cr>",
-    { desc = "Open terminal at bottom" }) -- Bottom terminal
+    { desc = "Open terminal at bottom" })   -- Bottom terminal
 remapping("t", "<C-t>f", "<cmd>ToggleTerm  direction=float<cr>",
     { desc = "Open terminal in floating" }) -- Floating terminal
 
 -- LSP function mapping
-remapping("n", "<leader>sh", vim.lsp.buf.signature_help,
+remapping("n", "<leader>lsh", vim.lsp.buf.signature_help,
     { desc = "Open `signature_help` provided by LSP" })
-remapping("n", "<leader>rn", vim.lsp.buf.rename,
+remapping("n", "<leader>lrn", vim.lsp.buf.rename,
     { desc = "Action `rename` provided by LSP" })
-remapping("n", "<leader>f", vim.lsp.buf.format,
+remapping("n", "<leader>lf", vim.lsp.buf.format,
     { desc = "Action `format` provided by LSP" })
-remapping("n", "<leader>ca", vim.lsp.buf.code_action,
+remapping("n", "<leader>lca", vim.lsp.buf.code_action,
     { desc = "Open `code_action` provided by LSP" })
-remapping("n", "<leader>gd", vim.lsp.buf.definition,
+remapping("n", "<leader>lgd", vim.lsp.buf.definition,
     { desc = "Goto definition" })
-remapping("n", "<leader>gr", vim.lsp.buf.references,
+remapping("n", "<leader>lgr", vim.lsp.buf.references,
     { desc = "Goto references" })
