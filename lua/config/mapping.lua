@@ -21,7 +21,7 @@ keymap("n", "<leader>wk", "<C-w>k",
   { desc = "Move to ↑ window" })
 keymap("n", "<leader>wl", "<C-w>l",
   { desc = "Move to → window" })
-keymap("n", "<leader>ww", "<C-w>l",
+keymap("n", "<leader>ww", "<C-w>w",
   { desc = "Switch window" })
 
 -- File actions
