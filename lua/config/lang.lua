@@ -4,4 +4,4 @@ local opt = vim.opt
 opt.spell = true
 
 -- Enable languages spelling check
-opt.spelllang = { "en_us" }
+opt.spelllang = { "en_us", "cjk" }
