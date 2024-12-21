@@ -6,6 +6,7 @@ module.servers = {
     rust_analyzer = {},
     jsonls = {},
     taplo = {},
+    jdtls = {},
     gopls = {},
     lua_ls = {
         Lua = {
