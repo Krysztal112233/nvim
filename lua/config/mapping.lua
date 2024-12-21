@@ -10,23 +10,23 @@ opt.tabstop = 4
 
 -- Misc function mapping
 remapping("n", "<leader>?", "<cmd>WhichKey<cr>",
-    { desc = "Open `WhichKey` window'" }) -- Open `WhichKey` window
+    { desc = "Open `WhichKey` window'" })                    -- Open `WhichKey` window
 remapping("n", "<leader>ft", "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-    { desc = "Find text in current buffer with fuzzy way" })
+    { desc = "Find text in current buffer with fuzzy way" }) -- Fuzzy search powered by `Telescope`
 remapping("n", "<leader>ff", "<cmd>Telescope find_files<cr>",
-    { desc = "Find file to open" }) -- Open `Telescope` window
+    { desc = "Find file to open" })                          -- Open `Telescope` window to find file
 remapping("n", "<leader>fb", "<cmd>Telescope buffers<cr>",
-    { desc = "Find buffer to open" })
+    { desc = "Find buffer to open" })                        -- Open `Telescope` window to find buffer
+remapping("n", "<C-e>", "<cmd>NvimTreeFindFile<CR>",
+    { desc = "Locate to current buffer file fastly" })       -- Locate to file explorer
 
 -- Copy, cut, paste
 -- Copy to system paste board
 remapping('n', '<C-c>', '"+y')
 remapping('v', '<C-c>', '"+y')
-
 -- Paste from system paste board
 remapping('n', '<C-v>', '"+gP')
 remapping('i', '<C-v>', '<C-r>+')
-
 -- Cut current text to system paste board
 remapping('n', '<C-x>', '"+d')
 remapping('v', '<C-x>', '"+d')
