@@ -180,16 +180,11 @@ return {
         end
     },
 
-    -- Document hover
+    -- Signature hovering
     {
-        "nvimdev/lspsaga.nvim",
-        event = "LspAttach",
-        config = function()
-            require("lspsaga").setup({})
-        end,
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter", -- optional
-            "nvim-tree/nvim-web-devicons",     -- optional
-        }
+        "ray-x/lsp_signature.nvim",
+        event = "VeryLazy",
+        opts = {},
+        config = function(_, opts) require 'lsp_signature'.setup(opts) end
     },
 }
