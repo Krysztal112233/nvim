@@ -13,7 +13,7 @@ return {
         'romgrk/barbar.nvim',
         event = "VeryLazy",
         dependencies = {
-            'lewis6991/gitsigns.nvim', -- for git status
+            'lewis6991/gitsigns.nvim',     -- for git status
             'nvim-tree/nvim-web-devicons', -- for file icons
         },
 
@@ -65,4 +65,25 @@ return {
         event = "InsertEnter",
         config = true
     },
+
+    -- Git status
+    -- While current workspace contains `.git` directory
+    {
+        "lewis6991/gitsigns.nvim",
+        cond = function()
+            return vim.fn.isdirectory('.git') == 1
+        end,
+        config = function()
+            require('gitsigns').setup {
+                signs = {
+                    add          = { text = '+' },
+                    change       = { text = '~' },
+                    delete       = { text = '_' },
+                    topdelete    = { text = '‾' },
+                    changedelete = { text = '~' },
+                },
+                current_line_blame = true, -- 显示当前行的 Git blame 信息
+            }
+        end
+    }
 }
