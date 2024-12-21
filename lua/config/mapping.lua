@@ -11,12 +11,25 @@ opt.tabstop = 4
 -- Misc function mapping
 remapping("n", "<leader>?", "<cmd>WhichKey<cr>",
     { desc = "Open `WhichKey` window'" }) -- Open `WhichKey` window
-remapping("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+remapping("n", "<leader>ft", "<cmd>Telescope current_buffer_fuzzy_find<cr>",
     { desc = "Find text in current buffer with fuzzy way" })
 remapping("n", "<leader>ff", "<cmd>Telescope find_files<cr>",
-    { desc = "Open `Telescope` window" }) -- Open `Telescope` window
+    { desc = "Find file to open" }) -- Open `Telescope` window
 remapping("n", "<leader>fb", "<cmd>Telescope buffers<cr>",
-    { desc = "Open buffer selector" })
+    { desc = "Find buffer to open" })
+
+-- Copy, cut, paste
+-- Copy to system paste board
+remapping('n', '<C-c>', '"+y')
+remapping('v', '<C-c>', '"+y')
+
+-- Paste from system paste board
+remapping('n', '<C-v>', '"+gP')
+remapping('i', '<C-v>', '<C-r>+')
+
+-- Cut current text to system paste board
+remapping('n', '<C-x>', '"+d')
+remapping('v', '<C-x>', '"+d')
 
 -- Window actions
 remapping("n", "<leader>wj", "<C-w>j",
