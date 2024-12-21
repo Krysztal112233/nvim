@@ -101,8 +101,7 @@ return {
         "numToStr/Comment.nvim",
         opts = {
             opleader = {
-                line = '<leader>cl',   -- Comment lines in line comment
-                block = '<leader>clb', -- Comment lines in block comment
+                line = '<leader>cl', -- Comment lines in line comment
             },
         }
     },
