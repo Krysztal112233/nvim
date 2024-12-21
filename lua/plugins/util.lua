@@ -95,4 +95,15 @@ return {
             require('mini.surround').setup()
         end
     },
+
+    -- Comment util
+    {
+        "numToStr/Comment.nvim",
+        opts = {
+            opleader = {
+                line = '<leader>cl',   -- Comment lines in line comment
+                block = '<leader>clb', -- Comment lines in block comment
+            },
+        }
+    },
 }

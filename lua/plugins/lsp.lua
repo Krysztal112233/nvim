@@ -185,11 +185,7 @@ return {
         "nvimdev/lspsaga.nvim",
         event = "LspAttach",
         config = function()
-            require("lspsaga").setup({
-                ui = {
-                    border = 'rounded', -- 设置悬浮窗口的边框样式
-                },
-            })
+            require("lspsaga").setup({})
         end,
         dependencies = {
             "nvim-treesitter/nvim-treesitter", -- optional
