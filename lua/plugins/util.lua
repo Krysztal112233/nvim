@@ -85,5 +85,14 @@ return {
                 current_line_blame = true, -- 显示当前行的 Git blame 信息
             }
         end
-    }
+    },
+
+    -- Surrounding modification
+    {
+        "echasnovski/mini.surround",
+        event = { "BufEnter" },
+        config = function()
+            require('mini.surround').setup()
+        end
+    },
 }
