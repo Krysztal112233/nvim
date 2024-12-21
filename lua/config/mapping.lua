@@ -78,3 +78,5 @@ remapping("n", "<leader>lgd", vim.lsp.buf.definition,
     { desc = "Goto definition" })
 remapping("n", "<leader>lgr", vim.lsp.buf.references,
     { desc = "Goto references" })
+remapping("n", "<leader>lo", "<cmd>Outline<CR>",
+    { desc = "Toggle symbol outline" })

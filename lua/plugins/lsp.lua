@@ -163,4 +163,20 @@ return {
             dap.configurations.scala = require("config.debugger").scala
         end
     },
+
+    {
+        "hedyhli/outline.nvim",
+        lazy = true,
+        cmd = { "Outline", "OutlineOpen" },
+        opts = {
+            preview_window = {
+                winhl = 'NormalFloat:',
+            },
+            -- Your setup opts here
+        },
+        config = function()
+            require("outline").setup({})
+        end
+    },
+
 }
