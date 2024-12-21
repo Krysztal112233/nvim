@@ -42,7 +42,6 @@ module.json_file_type = { "json" }
 -- Completion sources
 module.cmp_sources = {
     { name = "nvim_lsp" },
-    { name = "buffer" },
     { name = "path" },
 }
 
