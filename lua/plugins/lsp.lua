@@ -164,13 +164,14 @@ return {
         end
     },
 
+    -- Symbol outlines
     {
         "hedyhli/outline.nvim",
         lazy = true,
         cmd = { "Outline", "OutlineOpen" },
         opts = {
             preview_window = {
-                winhl = 'NormalFloat:',
+                winhl = "NormalFloat:",
             },
             -- Your setup opts here
         },
@@ -179,4 +180,20 @@ return {
         end
     },
 
+    -- Document hover
+    {
+        "nvimdev/lspsaga.nvim",
+        event = "LspAttach",
+        config = function()
+            require("lspsaga").setup({
+                ui = {
+                    border = 'rounded', -- 设置悬浮窗口的边框样式
+                },
+            })
+        end,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter", -- optional
+            "nvim-tree/nvim-web-devicons",     -- optional
+        }
+    },
 }

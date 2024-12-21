@@ -80,3 +80,13 @@ remapping("n", "<leader>lgr", vim.lsp.buf.references,
     { desc = "Goto references" })
 remapping("n", "<leader>lo", "<cmd>Outline<CR>",
     { desc = "Toggle symbol outline" })
+remapping("n", "<leader>ld[", vim.diagnostic.goto_prev,
+    { desc = "Goto previous diagnostic" })
+remapping("n", "<leader>ld]", vim.diagnostic.goto_next,
+    { desc = "Goto next diagnostic" })
+remapping("n", "<leader>ldw", "<cmd>Telescope diagnostics bufnr=0<cr>",
+    { desc = "Open workspace diagnostic in floating" })
+remapping("n", "<leader>ldb", "<cmd>Telescope diagnostics<cr>",
+    { desc = "Open buffer diagnostic in floating" })
+remapping("n", "<leader>lh", "<cmd>Lspsaga hover_doc<cr>",
+    { desc = "Show document hover for function" })

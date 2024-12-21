@@ -1,3 +1,17 @@
+-- Display diagnostic while CursorMoved
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+    callback = function()
+        local opts = {
+            focusable = false,                                                        -- Cannot be focused
+            close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" }, -- Auto closing
+            border = "rounded",                                                       -- Border type
+            source = "always",                                                        -- Where's the diagnostic comes from
+            scope = "line",                                                           -- Only show the diagnostic from current line
+        }
+        vim.diagnostic.open_float(nil, opts)
+    end,
+})
+
 local line_number_auto_switch = true -- Enable auto-switch for line numbers
 
 -- Auto-switch line number mode based on insert mode
