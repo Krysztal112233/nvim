@@ -1,5 +1,4 @@
 return {
     { "folke/tokyonight.nvim" },
-    { "shaunsingh/solarized.nvim" },
-    { "shaunsingh/nord.nvim" }
+    { "loctvl842/monokai-pro.nvim" },
 }

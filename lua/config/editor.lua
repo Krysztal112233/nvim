@@ -1,6 +1,6 @@
 -- Configuration for colorschemes
-local colors_day = "nord"              -- Light colorscheme
-local colors_night = "tokyonight-moon" -- Dark colorscheme
+local colors_day = "monokai-pro-classic" -- Light colorscheme
+local colors_night = "tokyonight-moon"   -- Dark colorscheme
 
 -- Tab settings
 vim.opt.expandtab = true
