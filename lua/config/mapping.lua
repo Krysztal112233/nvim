@@ -17,6 +17,8 @@ remapping("n", "<leader>ff", "<cmd>Telescope find_files<cr>",
     { desc = "Find file to open" })                          -- Open `Telescope` window to find file
 remapping("n", "<leader>fb", "<cmd>Telescope buffers<cr>",
     { desc = "Find buffer to open" })                        -- Open `Telescope` window to find buffer
+remapping("n", "<leader>fp", "<cmd>Telescope live_grep<cr>",
+    { desc = "Find text in project with fuzz way" })         -- Search text in project
 remapping("n", "<C-e>", "<cmd>NvimTreeFindFile<CR>",
     { desc = "Locate to current buffer file fastly" })       -- Locate to file explorer
 
