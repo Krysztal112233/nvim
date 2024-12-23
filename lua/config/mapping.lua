@@ -30,6 +30,10 @@ remapping({ "n", "v" }, '<C-v>', '"+gP')
 -- Cut current text to system paste board
 remapping({ "n", "v" }, '<C-x>', '"+d')
 
+-- Comment lines
+remapping({ "n", "v" }, "<leader>c", "<Plug>(comment_toggle_linewise_visual)",
+    { desc = "Comment selected lines in linewise comment", })
+
 -- Window actions
 remapping("n", "<leader>wj", "<C-w>j",
     { desc = "Move to ↓ window" })
