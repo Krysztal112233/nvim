@@ -6,7 +6,13 @@ return {
     { "folke/which-key.nvim",    event = "VeryLazy", },
 
     -- Text input modification
-    { "stevearc/dressing.nvim",  lazy = false },
+    {
+        "stevearc/dressing.nvim",
+        lazy = false,
+        config = function()
+            require("dressing").setup({})
+        end
+    },
 
     -- Tab bar
     {
@@ -47,10 +53,12 @@ return {
         end
     },
 
-    -- Fuzzy file finder
+    -- powerful panel
     {
-        'nvim-telescope/telescope.nvim',
+        "nvim-telescope/telescope.nvim",
+        lazy = true,
         dependencies = { 'nvim-lua/plenary.nvim' },
+        event = "BufEnter"
     },
 
     -- Extensible UI for Neovim notifications and LSP progress messages.
@@ -61,7 +69,7 @@ return {
 
     -- Auto pair
     {
-        'windwp/nvim-autopairs',
+        "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = true
     },
@@ -82,7 +90,7 @@ return {
                     topdelete    = { text = '‾' },
                     changedelete = { text = '~' },
                 },
-                current_line_blame = true, -- 显示当前行的 Git blame 信息
+                current_line_blame = true, -- Show current line's Git blame
             }
         end
     },
@@ -99,10 +107,31 @@ return {
     -- Comment util
     {
         "numToStr/Comment.nvim",
-        opts = {
-            opleader = {
-                line = '<leader>cl', -- Comment lines in line comment
-            },
-        }
+        config = function()
+            require("Comment").setup()
+        end
     },
+
+    -- Symbol/word highlighter
+    {
+        "RRethy/vim-illuminate",
+        config = function()
+            require("illuminate").configure({
+                opts = {
+                    providers = {
+                        'lsp',
+                        'treesitter',
+                        'regex',
+                    },
+                }
+            })
+        end
+    },
+
+    -- Bookmarks
+    {
+        "chentoast/marks.nvim",
+        event = "VeryLazy",
+        opts = {},
+    }
 }

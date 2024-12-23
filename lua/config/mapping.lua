@@ -24,14 +24,11 @@ remapping("n", "<C-e>", "<cmd>NvimTreeFindFile<CR>",
 
 -- Copy, cut, paste
 -- Copy to system paste board
-remapping('n', '<C-c>', '"+y')
-remapping('v', '<C-c>', '"+y')
+remapping({ "n", "v" }, '<C-c>', '"+y')
 -- Paste from system paste board
-remapping('n', '<C-v>', '"+gP')
-remapping('i', '<C-v>', '<C-r>+')
+remapping({ "n", "v" }, '<C-v>', '"+gP')
 -- Cut current text to system paste board
-remapping('n', '<C-x>', '"+d')
-remapping('v', '<C-x>', '"+d')
+remapping({ "n", "v" }, '<C-x>', '"+d')
 
 -- Window actions
 remapping("n", "<leader>wj", "<C-w>j",
