@@ -1,6 +1,6 @@
 -- Configuration for colorschemes
-local colors_day = "monokai-pro-classic" -- Light colorscheme
-local colors_night = "tokyonight-moon"   -- Dark colorscheme
+local colors_day = "tokyonight-day"    -- Light colorscheme
+local colors_night = "tokyonight-moon" -- Dark colorscheme
 
 -- Tab settings
 vim.opt.expandtab = true
@@ -13,9 +13,17 @@ vim.g.editorconfig = true
 
 -- Apply colorscheme based on the time of day
 local function apply_colorscheme()
+    vim.o.termguicolors = true
     local hour = tonumber(os.date("%H"))
-    local scheme = (hour >= 19 or hour < 11) and colors_night or colors_day
-    vim.cmd("colorscheme " .. scheme)
+    local scheme = (hour >= 19 or hour < 10) and function()
+        -- Set darker theme
+        vim.cmd.colorscheme(colors_night)
+    end or function()
+        -- Set lighter theme
+        vim.cmd.colorscheme(colors_day)
+    end
+
+    scheme()
 end
 
 
