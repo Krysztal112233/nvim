@@ -3,6 +3,8 @@ local module = {}
 -- Enabled LSP managed by nvim-lspconfig, mason-lspconfig
 module.servers = {
     bashls = {},
+    ts_ls = {},
+    volar = {},
     rust_analyzer = {},
     jsonls = {},
     taplo = {},
