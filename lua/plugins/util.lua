@@ -140,5 +140,14 @@ return {
         "mg979/vim-visual-multi",
         lazy = true,
         event = "VimEnter"
+    },
+
+    -- Airline for beautiful display
+    {
+        "vim-airline/vim-airline",
+        dependencies = {
+            "vim-airline/vim-airline-themes"
+        },
+        event = "VeryLazy",
     }
 }

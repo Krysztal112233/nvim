@@ -21,3 +21,6 @@ require("config.lsp")
 
 -- Apply spell check configuration
 require("config.lang")
+
+-- Apply airline configuration
+require("config.airline")

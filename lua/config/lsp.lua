@@ -9,6 +9,7 @@ module.servers = {
     jsonls = {},
     taplo = {},
     jdtls = {},
+    yamlls = {},
     gopls = {},
     lua_ls = {
         Lua = {
