@@ -133,5 +133,12 @@ return {
         "chentoast/marks.nvim",
         event = "VeryLazy",
         opts = {},
+    },
+
+    -- Multi cursor
+    {
+        "mg979/vim-visual-multi",
+        lazy = true,
+        event = "VimEnter"
     }
 }

@@ -69,27 +69,31 @@ remapping("t", "<C-t>f", "<cmd>ToggleTerm  direction=float<cr>",
     { desc = "Open terminal in floating" }) -- Floating terminal
 
 -- LSP function mapping
-remapping("n", "<leader>lsh", vim.lsp.buf.signature_help,
+remapping({ "n", "v" }, "<leader>lsh", vim.lsp.buf.signature_help,
     { desc = "Open `signature_help` provided by LSP" })
-remapping("n", "<leader>lrn", vim.lsp.buf.rename,
+remapping({ "n", "v" }, "<leader>lrn", vim.lsp.buf.rename,
     { desc = "Action `rename` provided by LSP" })
-remapping("n", "<leader>lf", vim.lsp.buf.format,
+remapping({ "n", "v" }, "<leader>lf", vim.lsp.buf.format,
     { desc = "Action `format` provided by LSP" })
-remapping("n", "<leader>lca", vim.lsp.buf.code_action,
+remapping({ "n", "v" }, "<leader>lca", vim.lsp.buf.code_action,
     { desc = "Open `code_action` provided by LSP" })
-remapping("n", "<leader>lgd", "<cmd>Telescope lsp_definitions<cr>",
+remapping({ "n", "v" }, "<leader>lgd", "<cmd>Telescope lsp_definitions<cr>",
     { desc = "Goto definition powered by Telescope" })
-remapping("n", "<leader>lgr", "<cmd>Telescope lsp_references<cr>",
+remapping({ "n", "v" }, "<leader>lgr", "<cmd>Telescope lsp_references<cr>",
     { desc = "Goto references powered by Telescope" })
-remapping("n", "<leader>lo", "<cmd>Outline<CR>",
+remapping({ "n", "v" }, "<leader>lo", "<cmd>Outline<CR>",
     { desc = "Toggle symbol outline" })
-remapping("n", "<leader>ld[", vim.diagnostic.goto_prev,
+remapping({ "n", "v" }, "<leader>ld[", vim.diagnostic.goto_prev,
     { desc = "Goto previous diagnostic" })
-remapping("n", "<leader>ld]", vim.diagnostic.goto_next,
+remapping({ "n", "v" }, "<leader>ld]", vim.diagnostic.goto_next,
     { desc = "Goto next diagnostic" })
-remapping("n", "<leader>ldw", "<cmd>Telescope diagnostics bufnr=0<cr>",
+remapping({ "n", "v" }, "<leader>ldw", "<cmd>Telescope diagnostics bufnr=0<cr>",
     { desc = "Open workspace diagnostic in floating" })
-remapping("n", "<leader>ldb", "<cmd>Telescope diagnostics<cr>",
+remapping({ "n", "v" }, "<leader>ldb", "<cmd>Telescope diagnostics<cr>",
     { desc = "Open buffer diagnostic in floating" })
-remapping("n", "<leader>lh", "<cmd>Lspsaga hover_doc<cr>",
+remapping({ "n", "v" }, "<leader>lh", "<cmd>Lspsaga hover_doc<cr>",
     { desc = "Show document hover for function" })
+
+-- Quick fix
+remapping({ "n", "v" }, "<C-f>", "<cmd>Telescope quickfix<cr>",
+    { desc = "Quick fix powered by Telescope" })
