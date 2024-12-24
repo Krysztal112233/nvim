@@ -77,10 +77,10 @@ remapping("n", "<leader>lf", vim.lsp.buf.format,
     { desc = "Action `format` provided by LSP" })
 remapping("n", "<leader>lca", vim.lsp.buf.code_action,
     { desc = "Open `code_action` provided by LSP" })
-remapping("n", "<leader>lgd", vim.lsp.buf.definition,
-    { desc = "Goto definition" })
-remapping("n", "<leader>lgr", vim.lsp.buf.references,
-    { desc = "Goto references" })
+remapping("n", "<leader>lgd", "<cmd>Telescope lsp_definitions<cr>",
+    { desc = "Goto definition powered by Telescope" })
+remapping("n", "<leader>lgr", "<cmd>Telescope lsp_references<cr>",
+    { desc = "Goto references powered by Telescope" })
 remapping("n", "<leader>lo", "<cmd>Outline<CR>",
     { desc = "Toggle symbol outline" })
 remapping("n", "<leader>ld[", vim.diagnostic.goto_prev,
