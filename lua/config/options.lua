@@ -1,3 +1,6 @@
+-- Airline configurations
+vim.g.airline_theme = "solarized"
+
 -- Display diagnostic while CursorMoved
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
     callback = function()

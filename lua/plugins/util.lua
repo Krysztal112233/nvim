@@ -149,5 +149,22 @@ return {
             "vim-airline/vim-airline-themes"
         },
         event = "VeryLazy",
+    },
+
+    -- Lazy git into nvim
+    {
+
+        "kdheepak/lazygit.nvim",
+        lazy = true,
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
+        },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
     }
 }

@@ -22,6 +22,12 @@ remapping("n", "<leader>fp", "<cmd>Telescope live_grep<cr>",
 remapping("n", "<C-e>", "<cmd>NvimTreeFindFile<CR>",
     { desc = "Locate to current buffer file fastly" })       -- Locate to file explorer
 
+-- Open lazygit floating window
+remapping({ "n", "v" }, "<leader>g", "<cmd>LazyGit<cr>",
+    { desc = "Open lazygit in floating" })
+remapping({ "n", "v" }, "<leader>gf", "<cmd>LazyGitFilter<cr>",
+    { desc = "Open lazygit filter for current project" })
+
 -- Copy, cut, paste
 -- Copy to system paste board
 remapping({ "n", "v" }, '<C-c>', '"+y')
@@ -35,17 +41,17 @@ remapping({ "n", "v" }, "<leader>c", "<Plug>(comment_toggle_linewise_visual)",
     { desc = "Comment selected lines in linewise comment", })
 
 -- Window actions
-remapping("n", "<leader>wj", "<C-w>j",
+remapping({ "n", "v" }, "<leader>wj", "<C-w>j",
     { desc = "Move to ↓ window" })
-remapping("n", "<leader>wh", "<C-w>h",
+remapping({ "n", "v" }, "<leader>wh", "<C-w>h",
     { desc = "Move to ← window" })
-remapping("n", "<leader>wk", "<C-w>k",
+remapping({ "n", "v" }, "<leader>wk", "<C-w>k",
     { desc = "Move to ↑ window" })
-remapping("n", "<leader>wl", "<C-w>l",
+remapping({ "n", "v" }, "<leader>wl", "<C-w>l",
     { desc = "Move to → window" })
-remapping("n", "<leader>ww", "<C-w>w",
+remapping({ "n", "v" }, "<leader>ww", "<C-w>w",
     { desc = "Switch window" })
-remapping("n", "<leader>wc", "<cmd>bd <cr>",
+remapping({ "n", "v" }, "<leader>wc", "<cmd>bd <cr>",
     { desc = "Close current window(or buffer)" })
 
 -- File actions

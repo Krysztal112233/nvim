@@ -4,23 +4,20 @@
 local requirement = require("requirement")
 requirement.ensure()
 
--- Apply mapping configurations
-require("config.mapping")
+-- Apply keymaps
+require("config.keymaps")
 
 -- Apply plugin management
 require("config.lazy")
 
+-- Apply options
+require("config.options")
+
 -- Apply editor settings
 require("config.editor")
-
--- Apply misc configurations
-require("config.misc")
 
 -- Apply lsp configurations
 require("config.lsp")
 
 -- Apply spell check configuration
 require("config.lang")
-
--- Apply airline configuration
-require("config.airline")

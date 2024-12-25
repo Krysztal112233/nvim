@@ -2,7 +2,11 @@
 
 local model = {}
 
-local requirements = { "git", "rg" }
+local requirements = {
+    "git",
+    "rg",
+    "lazygit"
+}
 
 local function ensure_exist(binary)
     if vim.fn.executable(binary) == 0 then
