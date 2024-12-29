@@ -5,7 +5,27 @@ module.servers = {
     bashls = {},
     ts_ls = {},
     volar = {},
-    rust_analyzer = {},
+    rust_analyzer = {
+        imports = {
+            granularity = {
+                group = "module",
+            },
+            prefix = "self",
+        },
+        cargo = {
+            buildScripts = {
+                enable = true,
+            },
+        },
+        procMacro = {
+            enable = true
+        },
+        inlayHints = {
+            bindingModeHints = { enable = true },
+            closureCaptureHints = { enable = true },
+            genericParameterHints = { type = { enable = true } },
+        },
+    },
     jsonls = {},
     taplo = {},
     jdtls = {},
