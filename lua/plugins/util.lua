@@ -166,5 +166,44 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
+    },
+
+    -- treesitter
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+        opts = {
+            auto_install = true,
+            highlight = {
+                enable = true,
+            },
+            ensure_installed = {
+                "go",
+                "bash",
+                "c",
+                "diff",
+                "javascript",
+                "jsdoc",
+                "json",
+                "jsonc",
+                "lua",
+                "luadoc",
+                "luap",
+                "markdown",
+                "markdown_inline",
+                "python",
+                "query",
+                "regex",
+                "toml",
+                "typescript",
+                "vim",
+                "vimdoc",
+                "yaml",
+            },
+        },
+        config = function(opts)
+            require("nvim-treesitter.configs").setup(opts)
+        end
     }
 }

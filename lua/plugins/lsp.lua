@@ -115,6 +115,12 @@ return {
         end
     },
 
+    -- Helper: Rust Analyzer
+    {
+        "mrcjkb/rustaceanvim",
+        lazy = false,
+    },
+
     -- Special: ScalaMetals
     {
         "scalameta/nvim-metals",
@@ -157,7 +163,7 @@ return {
     -- Debugger
     {
         "mfussenegger/nvim-dap",
-        config = function(self, opts)
+        config = function(self)
             -- Debug settings if you're using nvim-dap
             local dap = require("dap")
             dap.configurations.scala = require("config.debugger").scala

@@ -81,8 +81,6 @@ remapping({ "n", "v" }, "<leader>lrn", vim.lsp.buf.rename,
     { desc = "Action `rename` provided by LSP" })
 remapping({ "n", "v" }, "<leader>lf", vim.lsp.buf.format,
     { desc = "Action `format` provided by LSP" })
-remapping({ "n", "v" }, "<leader>lca", vim.lsp.buf.code_action,
-    { desc = "Open `code_action` provided by LSP" })
 remapping({ "n", "v" }, "<leader>lgd", "<cmd>Telescope lsp_definitions<cr>",
     { desc = "Goto definition powered by Telescope" })
 remapping({ "n", "v" }, "<leader>lgr", "<cmd>Telescope lsp_references<cr>",
@@ -99,7 +97,5 @@ remapping({ "n", "v" }, "<leader>ldb", "<cmd>Telescope diagnostics<cr>",
     { desc = "Open buffer diagnostic in floating" })
 remapping({ "n", "v" }, "<leader>lh", "<cmd>Lspsaga hover_doc<cr>",
     { desc = "Show document hover for function" })
-
--- Quick fix
-remapping({ "n", "v" }, "<C-f>", "<cmd>Telescope quickfix<cr>",
-    { desc = "Quick fix powered by Telescope" })
+remapping({ "n", "v" }, "<C-f>", vim.lsp.buf.code_action,
+    { desc = "Open `code_action` powered by LSP" })
