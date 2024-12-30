@@ -194,6 +194,7 @@ return {
             ensure_installed = {
                 "go",
                 "bash",
+                "gleam",
                 "c",
                 "diff",
                 "javascript",
@@ -218,5 +219,33 @@ return {
         config = function(opts)
             require("nvim-treesitter.configs").setup(opts)
         end
+    },
+
+    -- Snip
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        build = "make install_jsregexp",
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end
+    },
+
+    -- ALE for spell check
+    {
+        "dense-analysis/ale",
+        config = function()
+            -- Configuration goes here.
+            local g = vim.g
+
+            g.ale_ruby_rubocop_auto_correct_all = 1
+
+            g.ale_linters = {
+                ruby = { "rubocop", "ruby" },
+                lua = { "lua_language_server" },
+                gleam = { "gleam" },
+            }
+        end
     }
+
 }

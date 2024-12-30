@@ -19,5 +19,3 @@ require("config.editor")
 -- Apply lsp configurations
 require("config.lsp")
 
--- Apply spell check configuration
-require("config.lang")
