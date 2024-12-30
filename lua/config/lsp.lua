@@ -5,27 +5,7 @@ module.servers = {
     bashls = {},
     ts_ls = {},
     volar = {},
-    rust_analyzer = {
-        imports = {
-            granularity = {
-                group = "module",
-            },
-            prefix = "self",
-        },
-        cargo = {
-            buildScripts = {
-                enable = true,
-            },
-        },
-        procMacro = {
-            enable = true
-        },
-        inlayHints = {
-            bindingModeHints = { enable = true },
-            closureCaptureHints = { enable = true },
-            genericParameterHints = { type = { enable = true } },
-        },
-    },
+    rust_analyzer = {},
     jsonls = {},
     taplo = {},
     jdtls = {},
@@ -41,6 +21,13 @@ module.servers = {
             telemetry = { enable = false },
         },
     },
+}
+
+
+module.servers_skip_install = {}
+
+module.servers_skip_config = {
+    "rust_analyzer"
 }
 
 -- Managed by mason-lspconfig
