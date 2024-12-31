@@ -8,7 +8,11 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
-            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-vsnip",
+
+            "rafamadriz/friendly-snippets",
+            "onsails/lspkind.nvim",
+            "hrsh7th/vim-vsnip",
         },
         config = function()
             local cmp = require("cmp")
@@ -28,10 +32,29 @@ return {
                     ghost_text = true,
                 },
 
-                -- Setting order of completion sources
-                sources = {
-                    require("config.lsp").cmp_sources,
-                    { name = 'luasnip' },
+                -- -- Setting order of completion sources
+                -- sources = require("config.lsp").cmp_sources,
+                sources = cmp.config.sources({
+                        { name = 'nvim_lsp' },
+                        { name = 'vsnip' },
+                    },
+                    {
+                        { name = 'buffer' },
+                        { name = 'path' }
+                    }),
+
+                formatting = {
+                    format = require('lspkind').cmp_format({
+                        maxwidth = {
+                            menu = 50,            -- leading text (labelDetails)
+                            abbr = 50,            -- actual suggestion item
+                        },
+                        ellipsis_char = '...',    -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+                        show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+                        before = function(entry, vim_item)
+                            return vim_item
+                        end
+                    })
                 },
 
                 -- lunar schema
