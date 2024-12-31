@@ -155,13 +155,21 @@ return {
         event = "VimEnter"
     },
 
-    -- Airline for beautiful display
+    -- Lualine for beautiful display
     {
-        "vim-airline/vim-airline",
-        dependencies = {
-            "vim-airline/vim-airline-themes"
-        },
-        event = "VeryLazy",
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = function()
+            local opts = {
+                options = {
+                    theme = "auto",
+                    globalstatus = true,
+                    disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
+                },
+            }
+
+            return opts
+        end
     },
 
     -- Lazy git into nvim
@@ -244,8 +252,19 @@ return {
                 ruby = { "rubocop", "ruby" },
                 lua = { "lua_language_server" },
                 gleam = { "gleam" },
+                rust = { "rust_analyzer" },
+                go = { "gopls" }
             }
         end
-    }
-
+    },
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+        },
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    },
 }
