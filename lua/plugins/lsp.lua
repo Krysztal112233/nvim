@@ -29,7 +29,10 @@ return {
                 },
 
                 -- Setting order of completion sources
-                sources = require("config.lsp").cmp_sources,
+                sources = {
+                    require("config.lsp").cmp_sources,
+                    { name = 'luasnip' },
+                },
 
                 -- lunar schema
                 mapping = {
