@@ -2,6 +2,7 @@ local module = {}
 
 -- Enabled LSP managed by nvim-lspconfig, mason-lspconfig
 module.servers = {
+    ols = {},
     bashls = {},
     ts_ls = {},
     volar = {},
