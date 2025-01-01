@@ -129,8 +129,10 @@ return {
             "williamboman/mason.nvim"
         },
         lazy = false,
-
         config = function()
+            -- Enable inlayhints
+            vim.lsp.inlay_hint.enable(true)
+
             local servers = require("config.lsp").servers
             for server, config in pairs(servers) do
                 if require("utils").contains(require("config.lsp").servers_skip_config, server) == true then
@@ -153,17 +155,7 @@ return {
         lazy = false,
         config = function()
             vim.g.rustaceanvim = {
-                tools = {},
-                server = {
-                    on_attach = function(client, bufnr)
-                        -- you can also put keymaps in here
-                    end,
-                    default_settings = {
-                        -- rust-analyzer language server configuration
-                        ['rust-analyzer'] = {},
-                    },
-                },
-                dap = {},
+                server = {},
             }
         end
     },
