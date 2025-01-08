@@ -7,7 +7,7 @@ return {
         require("nvim-tree").setup({
             view = {
                 side = "left", -- Show at left
-                width = 30, -- Set default width
+                width = 30,    -- Set default width
             },
             renderer = {
                 group_empty = true,

@@ -24,6 +24,9 @@ local function apply_colorscheme()
     end
 
     scheme()
+
+    -- Paired bracket
+    vim.cmd('highlight MatchParen guibg=Blue guifg=White gui=bold')
 end
 
 

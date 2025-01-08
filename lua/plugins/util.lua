@@ -10,7 +10,15 @@ return {
         "stevearc/dressing.nvim",
         lazy = false,
         config = function()
-            require("dressing").setup({})
+            require("dressing").setup({
+                input = {
+                    override = function(conf)
+                        conf.col = -1
+                        conf.row = 0
+                        return conf
+                    end,
+                },
+            })
         end
     },
 
@@ -234,25 +242,11 @@ return {
         build = "make install_jsregexp"
     },
 
-
-    -- ALE for spell check
+    -- Colorful pair
     {
-        "dense-analysis/ale",
+        "hiphish/rainbow-delimiters.nvim",
         config = function()
-            -- Configuration goes here.
-            local g = vim.g
-
-            g.ale_ruby_rubocop_auto_correct_all = 1
-
-            g.ale_linters = {
-                ruby = { "rubocop", "ruby" },
-                lua = { "lua_language_server" },
-                gleam = { "gleam" },
-                rust = { "rust_analyzer" },
-                go = { "gopls" }
-            }
+            require("rainbow-delimiters.setup").setup {}
         end
     },
-
-
 }

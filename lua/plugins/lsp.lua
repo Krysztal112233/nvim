@@ -26,12 +26,6 @@ return {
                     end,
                 },
 
-                -- Enable `ghost_text`
-                -- For completion preview
-                experimental = {
-                    ghost_text = true,
-                },
-
                 -- -- Setting order of completion sources
                 -- sources = require("config.lsp").cmp_sources,
                 sources = cmp.config.sources({
@@ -153,7 +147,9 @@ return {
     {
         "smjonas/inc-rename.nvim",
         config = function()
-            require("inc_rename").setup()
+            require("inc_rename").setup({
+                input_buffer_type = "dressing",
+            })
         end,
     },
 

@@ -22,11 +22,6 @@ remapping("n", "<leader>fp", "<cmd>Telescope live_grep<cr>",
 remapping("n", "<C-e>", "<cmd>NvimTreeFindFile<CR>",
     { desc = "Locate to current buffer file fastly" })       -- Locate to file explorer
 
-
--- Remap `:` to Telescope command
-remapping({ "n", "v" }, ":", "<cmd>Telescope commands<CR>",
-    { desc = "Open command pannel" })
-
 -- Open lazygit floating window
 remapping({ "n", "v" }, "<leader>g", "<cmd>LazyGit<cr>",
     { desc = "Open lazygit in floating" })
@@ -85,7 +80,7 @@ remapping({ "n", "v" }, "<leader>lsh", vim.lsp.buf.signature_help,
 remapping({ "n", "v" }, "<leader>lrn", function()
         return ":IncRename " .. vim.fn.expand("<cword>")
     end,
-    { desc = "Action `rename` provided by LSP" })
+    { desc = "Action `rename` provided by LSP", expr = true })
 remapping({ "n", "v" }, "<leader>lf", vim.lsp.buf.format,
     { desc = "Action `format` provided by LSP" })
 remapping({ "n", "v" }, "<leader>lgd", "<cmd>Telescope lsp_definitions<cr>",
