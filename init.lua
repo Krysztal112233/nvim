@@ -1,9 +1,5 @@
 -- The starting of the Neovim's world
 
--- Ensure requirements
-local requirement = require("requirement")
-requirement.ensure()
-
 -- Apply keymaps
 require("config.keymaps")
 

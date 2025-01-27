@@ -2,6 +2,10 @@
 local colors_day = "tokyonight-day"    -- Light colorscheme
 local colors_night = "tokyonight-moon" -- Dark colorscheme
 
+vim.diagnostic.config({
+    virtual_lines = true,
+})
+
 -- Tab settings
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
