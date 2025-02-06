@@ -1,6 +1,6 @@
-local module = {}
+local M = {}
 
-function module.contains(tbl, value)
+function M.contains(tbl, value)
     for _, v in ipairs(tbl) do
         if v == value then
             return true
@@ -9,4 +9,4 @@ function module.contains(tbl, value)
     return false
 end
 
-return module
+return M

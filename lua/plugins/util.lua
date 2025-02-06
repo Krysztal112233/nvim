@@ -9,17 +9,7 @@ return {
     {
         "stevearc/dressing.nvim",
         lazy = false,
-        config = function()
-            require("dressing").setup({
-                input = {
-                    override = function(conf)
-                        conf.col = -1
-                        conf.row = 0
-                        return conf
-                    end,
-                },
-            })
-        end
+        config = require("config.core.dressing").config
     },
 
     -- Tab bar
@@ -32,46 +22,10 @@ return {
         },
 
         -- Disable auto setup
-        init = function()
-            vim.g.barbar_auto_setup = false -- disable auto-setup
-        end,
+        init = require("config.core.barbar").init,
 
         -- Custom `babar`
-        config = function()
-            require("barbar").setup {
-                auto_hide = false,
-                tabpages = true,
-                icons = {
-                    -- Add diagnostics to tab bar
-                    diagnostics = {
-                        [vim.diagnostic.severity.ERROR] = { enabled = true },
-                        [vim.diagnostic.severity.WARN] = { enabled = false },
-                        [vim.diagnostic.severity.INFO] = { enabled = false },
-                        [vim.diagnostic.severity.HINT] = { enabled = true },
-                    },
-
-                    -- Add git signs to tab bar
-                    gitsigns = {
-                        added = { enabled = true, icon = '+' },
-                        changed = { enabled = true, icon = '~' },
-                        deleted = { enabled = true, icon = '-' },
-                    },
-                }
-            }
-
-            local map = vim.keymap.set
-            local opts = { noremap = true, silent = true }
-
-            -- Move to previous/next
-            map({ "n", "v" }, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-            map({ "n", "v" }, '<A-.>', '<Cmd>BufferNext<CR>', opts)
-
-            -- Re-order to previous/next
-            map({ "n", "v" }, '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-            map({ "n", "v" }, '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
-
-            map({ "n", "v" }, '<C-w>', '<Cmd>BufferClose<CR>', opts)
-        end
+        config = require("config.core.barbar").config
     },
 
     -- powerful panel
@@ -99,61 +53,33 @@ return {
     -- While current workspace contains `.git` directory
     {
         "lewis6991/gitsigns.nvim",
-        cond = function()
-            return vim.fn.isdirectory('.git') == 1
-        end,
-        config = function()
-            require('gitsigns').setup {
-                signs = {
-                    add          = { text = '+' },
-                    change       = { text = '~' },
-                    delete       = { text = '_' },
-                    topdelete    = { text = '‾' },
-                    changedelete = { text = '~' },
-                },
-                current_line_blame = true, -- Show current line's Git blame
-            }
-        end
+        cond = require("config.core.gitsigns").cond,
+        config = require("config.core.gitsigns").config
     },
 
     -- Surrounding modification
     {
         "echasnovski/mini.surround",
         event = { "BufEnter" },
-        config = function()
-            require('mini.surround').setup()
-        end
+        config = require("config.core.mini.surround").config
     },
 
     -- Comment util
     {
         "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup({})
-        end
+        config = require("config.core.comment").config
     },
 
     -- Symbol/word highlighter
     {
         "RRethy/vim-illuminate",
-        config = function()
-            require("illuminate").configure({
-                opts = {
-                    providers = {
-                        'lsp',
-                        'treesitter',
-                        'regex',
-                    },
-                }
-            })
-        end
+        config = require("config.core.illuminate").config
     },
 
     -- Bookmarks
     {
         "chentoast/marks.nvim",
         event = "VeryLazy",
-        opts = {},
     },
 
     -- Multi cursor
@@ -167,17 +93,7 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = function()
-            local opts = {
-                options = {
-                    theme = "auto",
-                    globalstatus = true,
-                    disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
-                    extensions = { "quickfix" }
-                },
-            }
-            return opts
-        end
+        opts = require("config.core.lualine").opts
     },
 
     -- Lazy git into nvim
@@ -202,39 +118,8 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-        opts = {
-            auto_install = true,
-            highlight = {
-                enable = true,
-            },
-            ensure_installed = {
-                "go",
-                "bash",
-                "gleam",
-                "c",
-                "diff",
-                "javascript",
-                "jsdoc",
-                "json",
-                "jsonc",
-                "lua",
-                "luadoc",
-                "luap",
-                "markdown",
-                "markdown_inline",
-                "python",
-                "query",
-                "regex",
-                "toml",
-                "typescript",
-                "vim",
-                "vimdoc",
-                "yaml",
-            },
-        },
-        config = function(opts)
-            require("nvim-treesitter.configs").setup(opts)
-        end
+        opts = require("config.core.treesitter").opts,
+        config = require("config.core.treesitter").config
     },
 
     {
@@ -245,8 +130,6 @@ return {
     -- Colorful pair
     {
         "hiphish/rainbow-delimiters.nvim",
-        config = function()
-            require("rainbow-delimiters.setup").setup {}
-        end
+        config = require("config.core.rainbow").config
     },
 }

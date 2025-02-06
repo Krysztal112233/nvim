@@ -5,6 +5,5 @@ return {
         lazy = true,
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         ft = require("config.lsp").markdown_file_type,
-        opts = {},
     }
 }
