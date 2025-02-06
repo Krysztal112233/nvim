@@ -132,4 +132,16 @@ return {
         "hiphish/rainbow-delimiters.nvim",
         config = require("config.core.rainbow").config
     },
+
+
+    -- noice nvim for better view
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        },
+        config = require("config.core.noice").config
+    }
 }
