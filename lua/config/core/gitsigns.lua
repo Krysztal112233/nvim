@@ -5,14 +5,14 @@ function M.cond()
 end
 
 function M.config()
-    local icon = require("config.icon").git
     require('gitsigns').setup {
         signs = {
-            add          = { text = icon.add },
-            change       = { text = icon.change },
-            delete       = { text = icon.delete },
-            topdelete    = { text = icon.topdelete },
-            changedelete = { text = icon.changedelete },
+            add          = { text = '┃' },
+            change       = { text = '┃' },
+            delete       = { text = '_' },
+            topdelete    = { text = '‾' },
+            changedelete = { text = '~' },
+            untracked    = { text = '┆' },
         },
         signs_staged = {
             add          = { text = '┃' },

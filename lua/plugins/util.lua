@@ -154,5 +154,6 @@ return {
             "MunifTanjim/nui.nvim",
         },
         config = require("config.core.neo-tree").config,
-    }
+    },
+
 }

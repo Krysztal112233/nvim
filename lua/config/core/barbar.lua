@@ -1,7 +1,6 @@
 local M = {}
 
 function M.config()
-    local icon = require("config.icon")
     require("barbar").setup {
         auto_hide = false,
         tabpages = true,
@@ -12,13 +11,6 @@ function M.config()
                 [vim.diagnostic.severity.WARN] = { enabled = false },
                 [vim.diagnostic.severity.INFO] = { enabled = false },
                 [vim.diagnostic.severity.HINT] = { enabled = true },
-            },
-
-            -- Add git signs to tab bar
-            gitsigns = {
-                added = { enabled = true, icon = icon.git.add },
-                changed = { enabled = true, icon = icon.git.change },
-                deleted = { enabled = true, icon = icon.git.delete },
             },
         }
     }
