@@ -1,9 +1,12 @@
 return {
     git = {
-        add          = '+',
-        change       = '~',
-        delete       = '-',
-        topdelete    = '',
-        changedelete = '',
+        add       = "",
+        delete    = "",
+        renamed   = "",
+        untracked = "",
+        ignored   = "",
+        unstaged  = "",
+        staged    = "",
+        conflict  = "",
     }
 }

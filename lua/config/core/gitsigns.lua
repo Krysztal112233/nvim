@@ -14,6 +14,14 @@ function M.config()
             topdelete    = { text = icon.topdelete },
             changedelete = { text = icon.changedelete },
         },
+        signs_staged = {
+            add          = { text = '┃' },
+            change       = { text = '┃' },
+            delete       = { text = '_' },
+            topdelete    = { text = '‾' },
+            changedelete = { text = '~' },
+            untracked    = { text = '┆' },
+        },
         current_line_blame = true, -- Show current line's Git blame
     }
 end

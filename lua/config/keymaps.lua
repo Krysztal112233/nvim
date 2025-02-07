@@ -19,14 +19,12 @@ remapping("n", "<leader>fb", "<cmd>Telescope buffers<cr>",
     { desc = "Find buffer to open" })                        -- Open `Telescope` window to find buffer
 remapping("n", "<leader>fp", "<cmd>Telescope live_grep<cr>",
     { desc = "Find text in project with fuzz way" })         -- Search text in project
-remapping("n", "<C-e>", "<cmd>NvimTreeFindFile<CR>",
-    { desc = "Locate to current buffer file fastly" })       -- Locate to file explorer
+remapping({ "n", "v" }, "<C-e>", "<cmd>Neotree<cr>",
+    { desc = "Focus on neotree" })                           -- Focus on neotree
 
 -- Open lazygit floating window
 remapping({ "n", "v" }, "<leader>g", "<cmd>LazyGit<cr>",
     { desc = "Open lazygit in floating" })
-remapping({ "n", "v" }, "<leader>gf", "<cmd>LazyGitFilter<cr>",
-    { desc = "Open lazygit filter for current project" })
 
 -- Copy, cut, paste
 -- Copy to system paste board
@@ -89,10 +87,6 @@ remapping({ "n", "v" }, "<leader>lgr", "<cmd>Telescope lsp_references<cr>",
     { desc = "Goto references powered by Telescope" })
 remapping({ "n", "v" }, "<leader>lo", "<cmd>Outline<CR>",
     { desc = "Toggle symbol outline" })
-remapping({ "n", "v" }, "<leader>ld[", vim.diagnostic.goto_prev,
-    { desc = "Goto previous diagnostic" })
-remapping({ "n", "v" }, "<leader>ld]", vim.diagnostic.goto_next,
-    { desc = "Goto next diagnostic" })
 remapping({ "n", "v" }, "<leader>ldw", "<cmd>Telescope diagnostics bufnr=0<cr>",
     { desc = "Open workspace diagnostic in floating" })
 remapping({ "n", "v" }, "<leader>ldb", "<cmd>Telescope diagnostics<cr>",
