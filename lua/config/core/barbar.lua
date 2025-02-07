@@ -1,6 +1,7 @@
 local M = {}
 
 function M.config()
+    local icon = require("config.icon")
     require("barbar").setup {
         auto_hide = false,
         tabpages = true,
@@ -15,9 +16,9 @@ function M.config()
 
             -- Add git signs to tab bar
             gitsigns = {
-                added = { enabled = true, icon = '+' },
-                changed = { enabled = true, icon = '~' },
-                deleted = { enabled = true, icon = '-' },
+                added = { enabled = true, icon = icon.git.add },
+                changed = { enabled = true, icon = icon.git.change },
+                deleted = { enabled = true, icon = icon.git.delete },
             },
         }
     }
@@ -37,7 +38,7 @@ function M.config()
 end
 
 function M.init()
-    vim.g.barbar_auto_setup = false         -- disable auto-setup
+    vim.g.barbar_auto_setup = false -- disable auto-setup
 end
 
 return M
