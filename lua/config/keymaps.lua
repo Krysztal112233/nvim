@@ -21,6 +21,8 @@ remapping("n", "<leader>fp", "<cmd>Telescope live_grep<cr>",
     { desc = "Find text in project with fuzz way" })         -- Search text in project
 remapping({ "n", "v" }, "<C-e>", "<cmd>Neotree<cr>",
     { desc = "Focus on neotree" })                           -- Focus on neotree
+remapping({ "n", "v" }, "<A-p>", "<cmd>Navbuddy<cr>",
+    { desc = "Open Navbuddy" })
 
 -- Open lazygit floating window
 remapping({ "n", "v" }, "<leader>g", "<cmd>LazyGit<cr>",

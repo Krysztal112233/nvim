@@ -78,4 +78,17 @@ return {
         opts = require("config.core.sym-outline").opts,
         config = require("config.core.sym-outline").config,
     },
+
+
+    -- Symbol navigator
+    {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        opts = require("config.core.navbuddy").opts,
+    }
 }
