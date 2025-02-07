@@ -2,6 +2,15 @@ local M = {}
 
 function M.opts()
     local opts = {
+        winbar = {
+            lualine_c = {
+                {
+                    "navic",
+                    color_correction = nil,
+                    navic_opts = nil
+                }
+            }
+        },
         options = {
             theme = "auto",
             globalstatus = true,

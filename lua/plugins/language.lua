@@ -90,5 +90,12 @@ return {
             "nvim-telescope/telescope.nvim",
         },
         opts = require("config.core.navbuddy").opts,
-    }
+    },
+
+    -- IDE like text wrapping
+    {
+        "SmiteshP/nvim-navic",
+        dependencies = "neovim/nvim-lspconfig",
+        opts = require("config.core.nvim-navic").opts,
+    },
 }

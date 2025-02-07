@@ -14,4 +14,3 @@ require("config.editor")
 
 -- Apply lsp configurations
 require("config.lsp")
-

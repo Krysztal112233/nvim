@@ -32,7 +32,7 @@ function M.config()
                 },
                 ellipsis_char = '', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
                 show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-                before = function(entry, vim_item)
+                before = function(_, vim_item)
                     return vim_item
                 end
             })

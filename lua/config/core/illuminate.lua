@@ -6,7 +6,6 @@ function M.config()
             providers = {
                 'lsp',
                 'treesitter',
-                'regex',
             },
         }
     })
