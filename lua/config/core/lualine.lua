@@ -2,7 +2,7 @@ local M = {}
 
 function M.opts()
     local opts = {
-        winbar = {
+        sections = {
             lualine_c = {
                 {
                     "navic",
