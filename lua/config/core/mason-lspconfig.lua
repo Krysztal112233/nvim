@@ -5,7 +5,7 @@ function M.config()
 
     require("mason-lspconfig").setup {
         ensure_installed = lsp_config.ensure_installed,
-        automatic_installation = lsp_config.ensure_installed,
+        automatic_installation = lsp_config.automatic_installation,
     }
 end
 

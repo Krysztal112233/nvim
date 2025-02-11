@@ -1,10 +1,10 @@
 -- The starting of the Neovim's world
 
--- Apply keymaps
-require("config.keymaps")
-
 -- Apply plugin management
 require("config.lazy")
+
+-- Apply keymaps
+require("config.keymaps")
 
 -- Apply options
 require("config.options")

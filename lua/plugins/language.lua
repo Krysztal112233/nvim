@@ -28,19 +28,28 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         dependencies = {
-            "williamboman/mason.nvim"
+            "williamboman/mason.nvim",
+            "neovim/nvim-lspconfig",
         },
         config = require("config.core.mason-lspconfig").config,
     },
 
-    -- nvim lsp config
+    -- nvim lsp-config
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            "williamboman/mason.nvim"
+            "williamboman/mason.nvim",
         },
         lazy = false,
         config = require("config.core.nvim-lspconfig").config,
+    },
+
+    {
+        "stevearc/conform.nvim",
+        lazy = true,
+        event = "VeryLazy",
+        config = require("config.core.conform-nvim").config,
+        ft = vim.tbl_keys(require("config.core.conform-nvim").opts().formatters_by_ft),
     },
 
     -- Rename preview
@@ -78,7 +87,6 @@ return {
         opts = require("config.core.sym-outline").opts,
         config = require("config.core.sym-outline").config,
     },
-
 
     -- Symbol navigator
     {

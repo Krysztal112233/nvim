@@ -81,7 +81,7 @@ remapping({ "n", "v" }, "<leader>lrn", function()
         return ":IncRename " .. vim.fn.expand("<cword>")
     end,
     { desc = "Action `rename` provided by LSP", expr = true })
-remapping({ "n", "v" }, "<leader>lf", vim.lsp.buf.format,
+remapping({ "n", "v" }, "<leader>lf", require("conform").format,
     { desc = "Action `format` provided by LSP" })
 remapping({ "n", "v" }, "<leader>lgd", "<cmd>Telescope lsp_definitions<cr>",
     { desc = "Goto definition powered by Telescope" })

@@ -14,7 +14,6 @@ M.servers = {
     gopls = {},
     lua_ls = {
         Lua = {
-            -- Settings for nvim completion
             diagnostics = { globals = { "vim" } },
             workspace = {
                 library = vim.api.nvim_get_runtime_file("", true),
@@ -24,8 +23,7 @@ M.servers = {
     },
 }
 
-
-M.servers_skip_install = {}
+M.mason_extra = { "deno", "stylua" }
 
 M.servers_skip_config = {
     "rust_analyzer"
@@ -33,28 +31,8 @@ M.servers_skip_config = {
 
 -- Managed by mason-lspconfig
 M.mason_lspconfig = {
-    ensure_installed = vim.tbl_keys(M.servers),
+    ensure_installed = vim.list_extend(vim.tbl_keys(M.servers), M.mason_extra),
     automatic_installation = true,
-}
-
--- Markdown file type
-M.markdown_file_type = { "markdown", "md" }
-
--- Scala file type
-M.scala_file_type = { "scala", "sbt", "java" }
-
--- Lua file type
-M.lua_file_type = { "lua" }
-
--- Go file type
-M.go_file_type = { "go" }
-
-M.json_file_type = { "json" }
-
--- Completion sources
-M.cmp_sources = {
-    { name = "nvim_lsp" },
-    { name = "path" },
 }
 
 return M

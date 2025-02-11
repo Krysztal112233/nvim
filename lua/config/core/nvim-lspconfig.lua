@@ -6,7 +6,7 @@ function M.config()
 
     local servers = require("config.lsp").servers
     for server, config in pairs(servers) do
-        if require("utils").contains(require("config.lsp").servers_skip_config, server) == true then
+        if vim.tbl_contains(require("config.lsp").servers_skip_config, server) == true then
             goto continue
         end
 
