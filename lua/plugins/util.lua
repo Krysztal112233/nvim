@@ -70,10 +70,10 @@ return {
         config = require("config.core.comment").config
     },
 
-    -- Symbol/word highlighter
     {
         "RRethy/vim-illuminate",
-        config = require("config.core.illuminate").config
+        opts = require("config.core.illuminate").opts,
+        config = require("config.core.illuminate").config,
     },
 
     -- Bookmarks

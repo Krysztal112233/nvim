@@ -1,9 +1,7 @@
 local M = {}
 
 function M.config()
-    require("inc_rename").setup({
-        input_buffer_type = "dressing",
-    })
+    require("inc_rename").setup({})
 end
 
 return M
