@@ -10,6 +10,7 @@ function M.opts()
             markdown = { "deno_fmt" },
             rust = { "rustfmt", lsp_format = "fallback" },
             sh = { "shfmt", lsp_format = "fallback" },
+            dockerfile = { lsp_format = "fallback" },
         },
     }
 end
