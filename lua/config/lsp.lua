@@ -13,6 +13,7 @@ M.servers = {
     ts_ls = {},
     volar = {},
     yamlls = {},
+    dockerls = {},
     lua_ls = {
         Lua = {
             diagnostics = { globals = { "vim" } },
