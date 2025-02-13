@@ -3,6 +3,7 @@ local M = {}
 function M.opts()
     return {
         formatters_by_ft = {
+            dockerfile = { lsp_format = "fallback" },
             go = { "goimports", "gofmt" },
             javascript = { "deno_fmt", "prettier" },
             json = { "deno_fmt" },
@@ -10,7 +11,7 @@ function M.opts()
             markdown = { "deno_fmt" },
             rust = { "rustfmt", lsp_format = "fallback" },
             sh = { "shfmt", lsp_format = "fallback" },
-            dockerfile = { lsp_format = "fallback" },
+            toml = { lsp_format = "fallback" },
         },
     }
 end
