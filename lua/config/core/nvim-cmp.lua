@@ -1,11 +1,11 @@
 local M = {}
 
-
-function M.config()
+function M.opts()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
-    cmp.setup({
+    return {
+
         -- Add snippet from LuaSnip
         snippet = {
             expand = function(args)
@@ -16,31 +16,29 @@ function M.config()
         -- Setting order of completion sources
         -- sources = require("config.lsp").cmp_sources,
         sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'vsnip' },
-            },
-            {
-                { name = 'buffer' },
-                { name = 'path' }
-            }),
+            { name = "nvim_lsp", priority = 1000 },
+            { name = "vsnip", priority = 900 },
+            { name = "buffer", priority = 600 },
+            { name = "path", priority = 100 },
+        }),
 
         formatting = {
-            format = require('lspkind').cmp_format({
+            format = require("lspkind").cmp_format({
                 maxwidth = {
                     menu = 50, -- leading text (labelDetails)
                     abbr = 50, -- actual suggestion item
                 },
-                ellipsis_char = '', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+                ellipsis_char = "", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
                 show_labelDetails = true, -- show labelDetails in menu. Disabled by default
                 before = function(_, vim_item)
                     return vim_item
-                end
-            })
+                end,
+            }),
         },
 
         -- lunar schema
         mapping = {
-            ['<CR>'] = cmp.mapping(function(fallback)
+            ["<CR>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     if luasnip.expandable() then
                         luasnip.expand()
@@ -74,7 +72,13 @@ function M.config()
                 end
             end, { "i", "s" }),
         },
-    })
+    }
+end
+
+function M.config(_, opts)
+    local cmp = require("cmp")
+
+    cmp.setup(opts)
 end
 
 return M
