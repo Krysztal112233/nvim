@@ -1,52 +1,52 @@
 return {
     -- Floating terminal
-    { 'akinsho/toggleterm.nvim', lazy = false,       config = true },
+    { "akinsho/toggleterm.nvim", lazy = false, config = true },
 
     -- `which-key`, powerful command prompt
-    { "folke/which-key.nvim",    event = "VeryLazy", },
+    { "folke/which-key.nvim", event = "VeryLazy" },
 
     -- Text input modification
     {
         "stevearc/dressing.nvim",
         lazy = false,
-        config = require("config.core.dressing").config
+        config = require("config.core.dressing").config,
     },
 
     -- Tab bar
     {
-        'romgrk/barbar.nvim',
+        "romgrk/barbar.nvim",
         event = "VeryLazy",
         dependencies = {
-            'lewis6991/gitsigns.nvim',     -- for git status
-            'nvim-tree/nvim-web-devicons', -- for file icons
+            "lewis6991/gitsigns.nvim", -- for git status
+            "nvim-tree/nvim-web-devicons", -- for file icons
         },
 
         -- Disable auto setup
         init = require("config.core.barbar").init,
 
         -- Custom `babar`
-        config = require("config.core.barbar").config
+        config = require("config.core.barbar").config,
     },
 
     -- powerful panel
     {
         "nvim-telescope/telescope.nvim",
         lazy = true,
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        event = "BufEnter"
+        dependencies = { "nvim-lua/plenary.nvim" },
+        event = "BufEnter",
     },
 
     -- Extensible UI for Neovim notifications and LSP progress messages.
     {
         "j-hui/fidget.nvim",
-        config = true
+        config = true,
     },
 
     -- Auto pair
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = true
+        config = true,
     },
 
     -- Git status
@@ -54,20 +54,20 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         cond = require("config.core.gitsigns").cond,
-        config = require("config.core.gitsigns").config
+        config = require("config.core.gitsigns").config,
     },
 
     -- Surrounding modification
     {
         "echasnovski/mini.surround",
         event = { "BufEnter" },
-        config = require("config.core.mini.surround").config
+        config = require("config.core.mini.surround").config,
     },
 
     -- Comment util
     {
         "numToStr/Comment.nvim",
-        config = require("config.core.comment").config
+        config = require("config.core.comment").config,
     },
 
     {
@@ -86,14 +86,14 @@ return {
     {
         "mg979/vim-visual-multi",
         lazy = true,
-        event = "VimEnter"
+        event = "VimEnter",
     },
 
     -- Lualine for beautiful display
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = require("config.core.lualine").opts
+        opts = require("config.core.lualine").opts,
     },
 
     -- Lazy git into nvim
@@ -119,20 +119,19 @@ return {
         build = ":TSUpdate",
         cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
         opts = require("config.core.treesitter").opts,
-        config = require("config.core.treesitter").config
+        config = require("config.core.treesitter").config,
     },
 
     {
         "L3MON4D3/LuaSnip",
-        build = "make install_jsregexp"
+        build = "make install_jsregexp",
     },
 
     -- Colorful pair
     {
         "hiphish/rainbow-delimiters.nvim",
-        config = require("config.core.rainbow").config
+        config = require("config.core.rainbow").config,
     },
-
 
     -- noice nvim for better view
     {
@@ -142,7 +141,7 @@ return {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
         },
-        config = require("config.core.noice").config
+        config = require("config.core.noice").config,
     },
 
     -- neotree
@@ -156,4 +155,8 @@ return {
         config = require("config.core.neo-tree").config,
     },
 
+    {
+        "folke/snacks.nvim",
+        opts = require("config.core.snacks").opts,
+    },
 }

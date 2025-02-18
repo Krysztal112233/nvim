@@ -5,5 +5,5 @@ return {
         lazy = true,
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         ft = { "md", "markdown" },
-    }
+    },
 }

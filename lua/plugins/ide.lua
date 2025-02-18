@@ -92,4 +92,10 @@ return {
         dependencies = "neovim/nvim-lspconfig",
         opts = require("config.core.nvim-navic").opts,
     },
+
+    -- Scrollbar
+    {
+        "petertriho/nvim-scrollbar",
+        config = require("config.core.scroll").config,
+    },
 }
