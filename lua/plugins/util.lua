@@ -159,4 +159,15 @@ return {
         "folke/snacks.nvim",
         opts = require("config.core.snacks").opts,
     },
+
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = require("config.core.flash").opts,
+        keys = require("config.core.flash").keys,
+    },
+
+    {
+        "tpope/vim-repeat",
+    },
 }
