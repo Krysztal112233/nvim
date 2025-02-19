@@ -3,6 +3,7 @@ local M = {}
 -- Enabled LSP managed by nvim-lspconfig, mason-lspconfig
 M.servers = {
     bashls = {},
+    clangd = {},
     denols = {},
     dockerls = {},
     gopls = {},
@@ -12,7 +13,6 @@ M.servers = {
     pylsp = {},
     rust_analyzer = {},
     taplo = {},
-    ts_ls = {},
     volar = {},
     yamlls = {},
     lua_ls = {
