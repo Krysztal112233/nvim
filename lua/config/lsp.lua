@@ -1,7 +1,7 @@
 local M = {}
 
 -- Enabled LSP managed by nvim-lspconfig, mason-lspconfig
-M.servers = {
+M.lspconfig = {
     bashls = {},
     clangd = {},
     denols = {},
@@ -9,7 +9,6 @@ M.servers = {
     gopls = {},
     jdtls = {},
     jsonls = {},
-    ols = {},
     pylsp = {},
     rust_analyzer = {},
     taplo = {},
@@ -26,15 +25,30 @@ M.servers = {
     },
 }
 
-M.mason_extra = {}
+M.mason_lspconfig = {
+    "bashls",
+    "clangd",
+    "denols",
+    "dockerls",
+    "gopls",
+    "jdtls",
+    "jsonls",
+    "pylsp",
+    "rust_analyzer",
+    "taplo",
+    "volar",
+    "yamlls",
+    "lua_ls",
+}
 
 M.servers_skip_config = {
+    "rustowl",
     "rust_analyzer",
 }
 
 -- Managed by mason-lspconfig
 M.mason_lspconfig = {
-    ensure_installed = vim.list_extend(vim.tbl_keys(M.servers), M.mason_extra),
+    ensure_installed = M.mason_lspconfig,
     automatic_installation = true,
 }
 

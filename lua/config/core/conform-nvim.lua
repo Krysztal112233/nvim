@@ -4,6 +4,7 @@ function M.opts()
     return {
         formatters_by_ft = {
             cpp = { "clang_format", lsp_format = "fallback" },
+            c = { "clang_format", lsp_format = "fallback" },
             dockerfile = { lsp_format = "fallback" },
             go = { "goimports", "gofmt" },
             javascript = { "deno_fmt", "prettier" },

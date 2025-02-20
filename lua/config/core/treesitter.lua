@@ -10,6 +10,7 @@ M.opts = {
         "bash",
         "gleam",
         "c",
+        "cpp",
         "diff",
         "javascript",
         "jsdoc",
