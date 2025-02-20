@@ -14,6 +14,7 @@ M.lspconfig = {
     taplo = {},
     volar = {},
     yamlls = {},
+    neocmake = {},
     lua_ls = {
         Lua = {
             diagnostics = { globals = { "vim" } },
@@ -33,12 +34,13 @@ M.mason_lspconfig = {
     "gopls",
     "jdtls",
     "jsonls",
+    "lua_ls",
+    "neocmake",
     "pylsp",
     "rust_analyzer",
     "taplo",
     "volar",
     "yamlls",
-    "lua_ls",
 }
 
 M.servers_skip_config = {
