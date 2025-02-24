@@ -98,7 +98,6 @@ return {
 
     -- Lazy git into nvim
     {
-
         "kdheepak/lazygit.nvim",
         lazy = true,
         cmd = {

@@ -65,15 +65,6 @@ return {
         config = require("config.core.dap.nvim-dap").config,
     },
 
-    -- Symbol outlines
-    {
-        "hedyhli/outline.nvim",
-        lazy = true,
-        cmd = { "Outline", "OutlineOpen" },
-        opts = require("config.core.sym-outline").opts,
-        config = require("config.core.sym-outline").config,
-    },
-
     -- Symbol navigator
     {
         "SmiteshP/nvim-navbuddy",
