@@ -45,18 +45,13 @@ return {
         config = require("config.core.nvim-lspconfig").config,
     },
 
+    -- formatting
     {
         "stevearc/conform.nvim",
         lazy = true,
         event = "VeryLazy",
         config = require("config.core.conform-nvim").config,
         ft = vim.tbl_keys(require("config.core.conform-nvim").opts().formatters_by_ft),
-    },
-
-    -- Rename preview
-    {
-        "smjonas/inc-rename.nvim",
-        config = require("config.core.inc-rename").config,
     },
 
     -- Debugger
@@ -82,11 +77,5 @@ return {
         "SmiteshP/nvim-navic",
         dependencies = "neovim/nvim-lspconfig",
         opts = require("config.core.nvim-navic").opts,
-    },
-
-    -- Scrollbar
-    {
-        "petertriho/nvim-scrollbar",
-        config = require("config.core.scroll").config,
     },
 }

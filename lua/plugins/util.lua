@@ -148,17 +148,19 @@ return {
         "nvim-neo-tree/neo-tree.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         },
         config = require("config.core.neo-tree").config,
     },
 
+    -- some tweaks for nvim
     {
         "folke/snacks.nvim",
         opts = require("config.core.snacks").opts,
     },
 
+    -- Fast navigation
     {
         "folke/flash.nvim",
         event = "VeryLazy",
@@ -166,7 +168,20 @@ return {
         keys = require("config.core.flash").keys,
     },
 
+    -- Wow, dot for repeating last operation!
     {
         "tpope/vim-repeat",
+    },
+
+    -- Scrollbar
+    {
+        "petertriho/nvim-scrollbar",
+        config = require("config.core.scroll").config,
+    },
+
+    -- Rename preview
+    {
+        "smjonas/inc-rename.nvim",
+        config = require("config.core.inc-rename").config,
     },
 }
