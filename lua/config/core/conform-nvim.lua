@@ -13,6 +13,7 @@ function M.opts()
             lua = { "stylua", lsp_format = "fallback" },
             markdown = { "deno_fmt" },
             rust = { "rustfmt", lsp_format = "fallback" },
+            scala = { lsp_format = "fallback" },
             sh = { "shfmt", lsp_format = "fallback" },
             toml = { lsp_format = "fallback" },
         },
