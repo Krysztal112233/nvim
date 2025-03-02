@@ -21,12 +21,18 @@ return {
         config = require("config.core.language.nvim-metals").config,
     },
 
-    -- Cland extra
+    -- Clangd extra
     {
         "p00f/clangd_extensions.nvim",
         lazy = true,
         ft = { "c", "cpp", "h", "hpp" },
         config = require("config.core.language.clangd_ext").config,
         opts = require("config.core.language.clangd_ext").opts,
+    },
+
+    {
+        "nvim-java/nvim-java",
+        dependencies = { "neovim/nvim-lspconfig" },
+        ft = { "java", "scala" },
     },
 }

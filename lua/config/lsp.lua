@@ -44,6 +44,7 @@ M.mason_lspconfig = {
 }
 
 M.servers_skip_config = {
+    "jdtls",
     "rustowl",
     "rust_analyzer",
 }

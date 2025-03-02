@@ -16,6 +16,7 @@ function M.opts()
             scala = { lsp_format = "fallback" },
             sh = { "shfmt", lsp_format = "fallback" },
             toml = { lsp_format = "fallback" },
+            yaml = { lsp_format = "fallback" },
         },
     }
 end

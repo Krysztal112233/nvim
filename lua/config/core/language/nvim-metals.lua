@@ -1,6 +1,5 @@
 local M = {}
 
-
 function M.opts()
     -- Initialized basic nvim-metals configuration
     local metals_config = require("metals").bare_config()
@@ -12,13 +11,23 @@ function M.opts()
         require("metals").setup_dap()
     end
 
+    metals_config.settings = {
+        inlayHints = {
+            hintsInPatternMatch = { enable = true },
+            implicitArguments = { enable = true },
+            implicitConversions = { enable = true },
+            inferredTypes = { enable = true },
+            typeParameters = { enable = true },
+        },
+    }
+
     return metals_config
 end
 
 function M.config(_, metals_config)
     local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
     vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "scala", "sbt", "java" },
+        pattern = { "scala", "sbt" },
         callback = function()
             require("metals").initialize_or_attach(metals_config)
         end,
