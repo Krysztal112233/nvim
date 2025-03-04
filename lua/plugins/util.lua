@@ -88,13 +88,6 @@ return {
         event = "VeryLazy",
     },
 
-    -- Multi cursor
-    {
-        "mg979/vim-visual-multi",
-        lazy = true,
-        event = "VimEnter",
-    },
-
     -- Lualine for beautiful display
     {
         "nvim-lualine/lualine.nvim",
