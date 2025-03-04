@@ -5,11 +5,17 @@ return {
     -- `which-key`, powerful command prompt
     { "folke/which-key.nvim", event = "VeryLazy" },
 
-    -- Text input modification
+    -- lazy.nvim
     {
-        "stevearc/dressing.nvim",
-        lazy = false,
-        config = require("config.core.dressing").config,
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        },
+        opts = {
+            -- add any options here
+        },
     },
 
     -- Tab bar
@@ -130,17 +136,6 @@ return {
     {
         "hiphish/rainbow-delimiters.nvim",
         config = require("config.core.rainbow").config,
-    },
-
-    -- noice nvim for better view
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
-        },
-        config = require("config.core.noice").config,
     },
 
     -- neotree

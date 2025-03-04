@@ -4,6 +4,7 @@ function M.opts()
     return {
         indent = { enabled = true },
         scope = { enabled = true },
+        input = { enabled = true },
     }
 end
 
