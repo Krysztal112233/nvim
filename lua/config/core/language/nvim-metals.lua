@@ -4,7 +4,7 @@ function M.opts()
     -- Initialized basic nvim-metals configuration
     local metals_config = require("metals").bare_config()
     metals_config.init_options.statusBarProvider = "off"
-    metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+    metals_config.capabilities = require("blink.cmp").get_lsp_capabilities()
 
     -- On attach function
     metals_config.on_attach = function(_, _)

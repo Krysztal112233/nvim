@@ -102,22 +102,6 @@ return {
         opts = require("config.core.lualine").opts,
     },
 
-    -- Lazy git into nvim
-    {
-        "kdheepak/lazygit.nvim",
-        lazy = true,
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-
     -- treesitter
     {
         "nvim-treesitter/nvim-treesitter",

@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local remapping = vim.keymap.set
 local global = vim.g
 local opt = vim.opt
@@ -23,7 +24,9 @@ remapping({ "n", "v" }, "<C-e>", "<cmd>Neotree<cr>", { desc = "Focus on neotree"
 remapping({ "n", "v" }, "<A-p>", "<cmd>Navbuddy<cr>", { desc = "Open Navbuddy" })
 
 -- Open lazygit floating window
-remapping({ "n", "v" }, "<leader>g", "<cmd>LazyGit<cr>", { desc = "Open lazygit in floating" })
+remapping({ "n", "v" }, "<leader>g", function()
+    Snacks.lazygit.open()
+end, { desc = "Open lazygit in floating" })
 
 -- Copy, cut, paste
 -- Copy to system paste board
@@ -52,7 +55,7 @@ remapping({ "n", "v" }, "<leader>wc", "<cmd>bd <cr>", { desc = "Close current wi
 -- File actions
 remapping("n", "<C-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
 remapping("n", "<C-S-s>", "<cmd>wa<cr>", { desc = "Save all buffer" })
-remapping("n", "<C-q>", "<cmd>xa<cr>", { desc = "Save all buffer, and exist nvim" })
+remapping("n", "<C-q>", "<cmd>xa!<cr>", { desc = "Save all buffer, and exist nvim" })
 
 -- Terminal mappings
 -- Open terminal

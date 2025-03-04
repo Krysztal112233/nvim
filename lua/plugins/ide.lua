@@ -1,21 +1,11 @@
 return {
     -- Auto completion
     {
-        "hrsh7th/nvim-cmp",
-        event = { "InsertEnter", "CmdlineEnter" },
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-vsnip",
-
-            "rafamadriz/friendly-snippets",
-            "onsails/lspkind.nvim",
-            "hrsh7th/vim-vsnip",
-        },
-        opts = require("config.core.nvim-cmp").opts,
-        config = require("config.core.nvim-cmp").config,
+        "saghen/blink.cmp",
+        dependencies = "rafamadriz/friendly-snippets",
+        version = "*",
+        opts = require("config.core.blink-cmp").opts,
+        opts_extend = { "sources.default" },
     },
 
     -- Mason

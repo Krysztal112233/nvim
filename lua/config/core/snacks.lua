@@ -5,6 +5,7 @@ function M.opts()
         indent = { enabled = true },
         scope = { enabled = true },
         input = { enabled = true },
+        lazygit = {},
     }
 end
 
