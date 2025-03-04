@@ -30,6 +30,7 @@ return {
         opts = require("config.core.language.clangd_ext").opts,
     },
 
+    -- Java support
     {
         "nvim-java/nvim-java",
         dependencies = { "neovim/nvim-lspconfig" },

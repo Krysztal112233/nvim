@@ -77,6 +77,9 @@ remapping({ "n", "v" }, "<leader>lsh", vim.lsp.buf.signature_help, { desc = "Ope
 remapping({ "n", "v" }, "<leader>lrn", function()
     return ":IncRename " .. vim.fn.expand("<cword>")
 end, { desc = "Action `rename` provided by LSP", expr = true })
+remapping({ "n", "v" }, "<F2>", function()
+    return ":IncRename " .. vim.fn.expand("<cword>")
+end, { desc = "Action `rename` provided by LSP", expr = true })
 remapping({ "n", "v" }, "<leader>lf", require("conform").format, { desc = "Action `format` provided by LSP" })
 remapping(
     { "n", "v" },
