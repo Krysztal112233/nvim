@@ -156,4 +156,9 @@ return {
         "smjonas/inc-rename.nvim",
         config = require("config.core.inc-rename").config,
     },
+
+    -- Multicursor
+    {
+        "terryma/vim-multiple-cursors",
+    },
 }
