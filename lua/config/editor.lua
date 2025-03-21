@@ -23,6 +23,9 @@ vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSi
 
 -- Enable `.editorconfig`
 vim.g.editorconfig = true
+vim.g.markdown_fenced_languages = {
+    "ts=typescript",
+}
 
 -- Apply colorscheme based on the time of day
 local function apply_colorscheme()

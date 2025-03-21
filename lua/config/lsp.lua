@@ -9,12 +9,12 @@ M.lspconfig = {
     gopls = {},
     jdtls = {},
     jsonls = {},
+    neocmake = {},
     pylsp = {},
     rust_analyzer = {},
     taplo = {},
-    volar = {},
+    vtsls = {},
     yamlls = {},
-    neocmake = {},
     lua_ls = {
         Lua = {
             diagnostics = { globals = { "vim" } },
@@ -22,6 +22,13 @@ M.lspconfig = {
                 library = vim.api.nvim_get_runtime_file("", true),
             },
             telemetry = { enable = false },
+        },
+    },
+    volar = {
+        init_options = {
+            vue = {
+                hybridMode = true,
+            },
         },
     },
 }

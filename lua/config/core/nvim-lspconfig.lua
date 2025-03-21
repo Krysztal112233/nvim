@@ -5,12 +5,13 @@ function M.config()
     vim.lsp.inlay_hint.enable(true)
 
     local servers = require("config.lsp").lspconfig
+    local lspconfig = require("lspconfig")
     for server, config in pairs(servers) do
         if vim.tbl_contains(require("config.lsp").servers_skip_config, server) == true then
             goto continue
         end
 
-        require("lspconfig")[server].setup({
+        lspconfig[server].setup({
             settings = config,
         })
         ::continue::
