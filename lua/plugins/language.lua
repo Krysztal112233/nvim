@@ -6,14 +6,6 @@ return {
         config = require("config.core.language.rustaceanvim").config,
     },
 
-    -- Visual lifetime explore
-    {
-        "cordx56/rustowl",
-        dependencies = { "neovim/nvim-lspconfig" },
-        ft = { "rust", "rs" },
-        config = require("config.core.language.rustowl").config,
-    },
-
     -- ScalaMetals
     {
         "scalameta/nvim-metals",
