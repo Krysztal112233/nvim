@@ -15,15 +15,6 @@ M.lspconfig = {
     taplo = {},
     vtsls = {},
     yamlls = {},
-    lua_ls = {
-        Lua = {
-            diagnostics = { globals = { "vim" } },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            telemetry = { enable = false },
-        },
-    },
     volar = {
         init_options = {
             vue = {
