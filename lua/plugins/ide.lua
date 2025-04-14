@@ -57,7 +57,6 @@ return {
             "neovim/nvim-lspconfig",
             "SmiteshP/nvim-navic",
             "MunifTanjim/nui.nvim",
-            "nvim-telescope/telescope.nvim",
         },
         opts = require("config.core.navbuddy").opts,
     },

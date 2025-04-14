@@ -15,7 +15,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.virtualedit = "onemore"
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 15
 
 -- Sign define
 vim.fn.sign_define("DiagnosticSignError", { text = "E", texthl = "DiagnosticSignError" })

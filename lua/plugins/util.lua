@@ -34,14 +34,6 @@ return {
         config = require("config.core.barbar").config,
     },
 
-    -- powerful panel
-    {
-        "nvim-telescope/telescope.nvim",
-        lazy = true,
-        dependencies = { "nvim-lua/plenary.nvim" },
-        event = "BufEnter",
-    },
-
     -- Extensible UI for Neovim notifications and LSP progress messages.
     {
         "j-hui/fidget.nvim",
@@ -80,12 +72,6 @@ return {
         "RRethy/vim-illuminate",
         opts = require("config.core.illuminate").opts,
         config = require("config.core.illuminate").config,
-    },
-
-    -- Bookmarks
-    {
-        "chentoast/marks.nvim",
-        event = "VeryLazy",
     },
 
     -- Lualine for beautiful display
@@ -157,8 +143,10 @@ return {
         config = require("config.core.inc-rename").config,
     },
 
-    -- Multicursor
+    -- Powerufl pannel
     {
-        "terryma/vim-multiple-cursors",
+        "ibhagwan/fzf-lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
     },
 }

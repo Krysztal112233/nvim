@@ -11,15 +11,10 @@ opt.tabstop = 4
 
 -- Misc function mapping
 remapping("n", "<leader>?", "<cmd>WhichKey<cr>", { desc = "Open `WhichKey` window'" }) -- Open `WhichKey` window
-remapping(
-    "n",
-    "<leader>ft",
-    "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-    { desc = "Find text in current buffer with fuzzy way" }
-) -- Fuzzy search powered by `Telescope`
-remapping("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find file to open" }) -- Open `Telescope` window to find file
-remapping("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffer to open" }) -- Open `Telescope` window to find buffer
-remapping("n", "<leader>fp", "<cmd>Telescope live_grep<cr>", { desc = "Find text in project with fuzz way" }) -- Search text in project
+remapping("n", "<leader>ft", "<cmd>FzfLua lgrep_curbuf<cr>", { desc = "Find text in current buffer with fuzzy way" }) -- Fuzzy search powered by `FzfLua`
+remapping("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Find file to open" }) -- Open `FzfLua` window to find file
+remapping("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Find buffer to open" }) -- Open `FzfLua` window to find buffer
+remapping("n", "<leader>fp", "<cmd>FzfLua live_grep<cr>", { desc = "Find text in project with fuzz way" }) -- Search text in project
 remapping({ "n", "v" }, "<C-e>", "<cmd>Neotree<cr>", { desc = "Focus on neotree" }) -- Focus on neotree
 remapping({ "n", "v" }, "<A-p>", "<cmd>Navbuddy<cr>", { desc = "Open Navbuddy" })
 
@@ -84,30 +79,14 @@ remapping({ "n", "v" }, "<F2>", function()
     return ":IncRename " .. vim.fn.expand("<cword>")
 end, { desc = "Action `rename` provided by LSP", expr = true })
 remapping({ "n", "v" }, "<leader>lf", require("conform").format, { desc = "Action `format` provided by LSP" })
-remapping(
-    { "n", "v" },
-    "<leader>lgd",
-    "<cmd>Telescope lsp_definitions<cr>",
-    { desc = "Goto definition powered by Telescope" }
-)
-remapping(
-    { "n", "v" },
-    "<leader>lgr",
-    "<cmd>Telescope lsp_references<cr>",
-    { desc = "Goto references powered by Telescope" }
-)
-remapping({ "n", "v" }, "<leader>lo", "<cmd>Outline<CR>", { desc = "Toggle symbol outline" })
+remapping({ "n", "v" }, "<leader>lgd", "<cmd>FzfLua lsp_definitions<cr>", { desc = "Goto definition" })
+remapping({ "n", "v" }, "<leader>lgr", "<cmd>FzfLua lsp_references<cr>", { desc = "Goto references powered" })
 remapping(
     { "n", "v" },
     "<leader>ldw",
-    "<cmd>Telescope diagnostics bufnr=0<cr>",
+    "<cmd>FzfLua diagnostics_document<cr>",
     { desc = "Open workspace diagnostic in floating" }
 )
-remapping(
-    { "n", "v" },
-    "<leader>ldb",
-    "<cmd>Telescope diagnostics<cr>",
-    { desc = "Open buffer diagnostic in floating" }
-)
+remapping({ "n", "v" }, "<leader>ldb", "<cmd>FzfLua diagnostics<cr>", { desc = "Open buffer diagnostic in floating" })
 remapping({ "n", "v" }, "<leader>lh", "<cmd>Lspsaga hover_doc<cr>", { desc = "Show document hover for function" })
 remapping({ "n", "v" }, "<C-f>", vim.lsp.buf.code_action, { desc = "Open `code_action` powered by LSP" })
