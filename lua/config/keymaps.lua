@@ -9,6 +9,9 @@ global.mapleader = " "
 -- Set tab width
 opt.tabstop = 4
 
+-- Set `jk` as ESC
+remapping("i", "jk", "<ESC>", { noremap = true })
+
 -- Misc function mapping
 remapping("n", "<leader>?", "<cmd>WhichKey<cr>", { desc = "Open `WhichKey` window'" }) -- Open `WhichKey` window
 remapping("n", "<leader>ft", "<cmd>FzfLua lgrep_curbuf<cr>", { desc = "Find text in current buffer with fuzzy way" }) -- Fuzzy search powered by `FzfLua`
