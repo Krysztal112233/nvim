@@ -1,6 +1,6 @@
 -- Configuration for colorschemes
-local colors_day = "tokyonight-day"    -- Light colorscheme
-local colors_night = "tokyonight-moon" -- Dark colorscheme
+local colors_day = "monokai-pro-light"     -- Light colorscheme
+local colors_night = "monokai-pro-octagon" -- Dark colorscheme
 
 -- nowrap
 vim.opt.wrap = false
