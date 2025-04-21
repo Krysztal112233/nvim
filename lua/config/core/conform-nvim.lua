@@ -10,6 +10,7 @@ function M.opts()
             go = { "goimports", "gofmt" },
             javascript = { "deno_fmt", "prettier" },
             json = { "deno_fmt" },
+            java = { lsp_format = "fallback" },
             lua = { "stylua", lsp_format = "fallback" },
             markdown = { "deno_fmt" },
             rust = { "rustfmt", lsp_format = "fallback" },

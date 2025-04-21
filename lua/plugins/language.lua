@@ -25,9 +25,9 @@ return {
     -- Java support
     {
         "nvim-java/nvim-java",
-        dependencies = { "neovim/nvim-lspconfig" },
         ft = { "java", "scala" },
-        opts = require("config.core.nvim-java").opts,
+        config = require("config.core.nvim-java").config,
+        opts = require("config.core.nvim-java").opts
     },
 
     -- Just support
