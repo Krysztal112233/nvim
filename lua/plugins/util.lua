@@ -1,9 +1,17 @@
 return {
     -- Floating terminal
-    { "akinsho/toggleterm.nvim", lazy = false, config = true },
+    {
+        "akinsho/toggleterm.nvim",
+        lazy = false,
+        config = true
+    },
 
     -- `which-key`, powerful command prompt
-    { "folke/which-key.nvim", event = "VeryLazy" },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = require("config.core.which-key").opts
+    },
 
     -- lazy.nvim
     {
@@ -13,9 +21,7 @@ return {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
         },
-        opts = {
-            -- add any options here
-        },
+        config = require("config.core.noice").config
     },
 
     -- Tab bar
@@ -23,7 +29,7 @@ return {
         "romgrk/barbar.nvim",
         event = "VeryLazy",
         dependencies = {
-            "lewis6991/gitsigns.nvim", -- for git status
+            "lewis6991/gitsigns.nvim",     -- for git status
             "nvim-tree/nvim-web-devicons", -- for file icons
         },
 
@@ -147,6 +153,16 @@ return {
     {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {},
+        config = require("config.core.fzf-lua").config
     },
+
+    -- neogit
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "ibhagwan/fzf-lua",
+        },
+    }
 }

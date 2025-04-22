@@ -1,5 +1,5 @@
 -- Configuration for colorschemes
-local colors_day = "monokai-pro-light"     -- Light colorscheme
+local colors_day = "monokai-pro-spectrum"  -- Light colorscheme
 local colors_night = "monokai-pro-octagon" -- Dark colorscheme
 
 -- nowrap

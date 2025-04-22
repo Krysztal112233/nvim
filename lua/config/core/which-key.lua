@@ -2,9 +2,7 @@ local M = {}
 
 function M.opts()
     return {
-        lsp = {
-            auto_attach = true,
-        },
+        preset = "helix",
     }
 end
 

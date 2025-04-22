@@ -13,13 +13,19 @@ opt.tabstop = 4
 remapping("i", "jk", "<ESC>", { noremap = true })
 
 -- Misc function mapping
-remapping("n", "<leader>?", "<cmd>WhichKey<cr>", { desc = "Open `WhichKey` window'" }) -- Open `WhichKey` window
-remapping("n", "<leader>ft", "<cmd>FzfLua lgrep_curbuf<cr>", { desc = "Find text in current buffer with fuzzy way" }) -- Fuzzy search powered by `FzfLua`
-remapping("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Find file to open" }) -- Open `FzfLua` window to find file
-remapping("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Find buffer to open" }) -- Open `FzfLua` window to find buffer
-remapping("n", "<leader>fp", "<cmd>FzfLua live_grep<cr>", { desc = "Find text in project with fuzz way" }) -- Search text in project
-remapping({ "n", "v" }, "<C-e>", "<cmd>Neotree<cr>", { desc = "Focus on neotree" }) -- Focus on neotree
-remapping({ "n", "v" }, "<A-p>", "<cmd>Navbuddy<cr>", { desc = "Open Navbuddy" })
+remapping("n", "<leader>?", "<cmd>WhichKey<cr>", { desc = "Open `WhichKey` window'" })
+remapping("n", "<leader>ft", "<cmd>FzfLua lgrep_curbuf<cr>", { desc = "Find text in current buffer with fuzzy way" })
+remapping("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Find file to open" })
+remapping("n", "<leader>fp", "<cmd>FzfLua live_grep<cr>", { desc = "Find text in project with fuzz way" })
+remapping({ "n", "v" }, "<C-e>", "<cmd>Neotree<cr>", { desc = "Focus on neotree" })
+remapping({ "n", "v" }, "<A-p>", "<cmd>FzfLua lsp_document_symbols<cr>", { desc = "Open symbols navigator" })
+
+
+-- Buffer management
+remapping("n", "<leader>bl", "<cmd>FzfLua buffers<cr>", { desc = "Open buffer list" })
+remapping("n", "<leader>bQ", "<cmd>BufferClose<cr>", { desc = "Close current buffer" })
+remapping("n", "<leader>bq", "<cmd>BufferCloseButVisible<cr>", { desc = "Close all buffer but current" })
+
 
 -- Open lazygit floating window
 remapping({ "n", "v" }, "<leader>g", function()
@@ -27,12 +33,9 @@ remapping({ "n", "v" }, "<leader>g", function()
 end, { desc = "Open lazygit in floating" })
 
 -- Copy, cut, paste
--- Copy to system paste board
-remapping({ "n", "v" }, "<C-c>", '"+y')
--- Paste from system paste board
-remapping({ "n", "v" }, "<C-v>", '"+gP')
--- Cut current text to system paste board
-remapping({ "n", "v" }, "<C-x>", '"+d')
+remapping({ "n", "v" }, "<C-c>", '"+y', { desc = "Copy to system clipboard" })
+remapping({ "n", "v" }, "<C-v>", '"+gP', { desc = "Paste from system clipboard" })
+remapping({ "n", "v" }, "<C-x>", '"+d', { desc = "Cut to system clipboard" })
 
 -- Comment lines
 remapping(
@@ -53,7 +56,6 @@ remapping({ "n", "v" }, "<leader>wc", "<cmd>bd <cr>", { desc = "Close current wi
 -- File actions
 remapping("n", "<C-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
 remapping("n", "<C-S-s>", "<cmd>wa<cr>", { desc = "Save all buffer" })
-remapping("n", "<C-q>", "<cmd>xa!<cr>", { desc = "Save all buffer, and exist nvim" })
 
 -- Terminal mappings
 -- Open terminal
@@ -62,7 +64,7 @@ remapping(
     "<C-t>t",
     "<cmd>ToggleTerm size = 20, direction=horizontal start_in_insert=true <cr>",
     { desc = "Open terminal at bottom" }
-) -- Bottom terminal
+)                                                                                                        -- Bottom terminal
 remapping("n", "<C-t>f", "<cmd>ToggleTerm  direction=float<cr>", { desc = "Open terminal in floating" }) -- Floating terminal
 -- Close terminal
 remapping(
@@ -70,26 +72,26 @@ remapping(
     "<C-t>t",
     "<cmd>ToggleTerm size = 20, direction=horizontal start_in_insert=true <cr>",
     { desc = "Open terminal at bottom" }
-) -- Bottom terminal
+)                                                                                                        -- Bottom terminal
 remapping("t", "<C-t>f", "<cmd>ToggleTerm  direction=float<cr>", { desc = "Open terminal in floating" }) -- Floating terminal
 
 -- LSP function mapping
-remapping({ "n", "v" }, "<leader>lsh", vim.lsp.buf.signature_help, { desc = "Open `signature_help` provided by LSP" })
+remapping({ "n", "v" }, "K", vim.lsp.buf.signature_help, { desc = "Open `signature_help` provided by LSP" })
 remapping({ "n", "v" }, "<leader>lrn", function()
     return ":IncRename " .. vim.fn.expand("<cword>")
 end, { desc = "Action `rename` provided by LSP", expr = true })
 remapping({ "n", "v" }, "<F2>", function()
     return ":IncRename " .. vim.fn.expand("<cword>")
 end, { desc = "Action `rename` provided by LSP", expr = true })
-remapping({ "n", "v" }, "<leader>lf", require("conform").format, { desc = "Action `format` provided by LSP" })
+remapping({ "n", "v" }, "<leader>lf", require("conform").format, {})
 remapping({ "n", "v" }, "<leader>lgd", "<cmd>FzfLua lsp_definitions<cr>", { desc = "Goto definition" })
 remapping({ "n", "v" }, "<leader>lgr", "<cmd>FzfLua lsp_references<cr>", { desc = "Goto references powered" })
 remapping(
     { "n", "v" },
-    "<leader>ldw",
-    "<cmd>FzfLua diagnostics_document<cr>",
+    "<leader>tw",
+    "<cmd>FzfLua diagnostics_workspace<cr>",
     { desc = "Open workspace diagnostic in floating" }
 )
-remapping({ "n", "v" }, "<leader>ldb", "<cmd>FzfLua diagnostics<cr>", { desc = "Open buffer diagnostic in floating" })
-remapping({ "n", "v" }, "<leader>lh", "<cmd>Lspsaga hover_doc<cr>", { desc = "Show document hover for function" })
-remapping({ "n", "v" }, "<C-f>", vim.lsp.buf.code_action, { desc = "Open `code_action` powered by LSP" })
+remapping({ "n", "v" }, "<leader>tb", "<cmd>FzfLua diagnostics_document<cr>",
+    { desc = "Open document diagnostic in floating" })
+remapping({ "n", "v" }, "<C-f>", "<cmd>FzfLua lsp_code_actions<cr>", {})
