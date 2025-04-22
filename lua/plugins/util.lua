@@ -155,14 +155,4 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = require("config.core.fzf-lua").config
     },
-
-    -- neogit
-    {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "sindrets/diffview.nvim",
-            "ibhagwan/fzf-lua",
-        },
-    }
 }

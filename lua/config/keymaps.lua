@@ -23,9 +23,8 @@ remapping({ "n", "v" }, "<A-p>", "<cmd>FzfLua lsp_document_symbols<cr>", { desc 
 
 -- Buffer management
 remapping("n", "<leader>bl", "<cmd>FzfLua buffers<cr>", { desc = "Open buffer list" })
-remapping("n", "<leader>bQ", "<cmd>BufferClose<cr>", { desc = "Close current buffer" })
-remapping("n", "<leader>bq", "<cmd>BufferCloseButVisible<cr>", { desc = "Close all buffer but current" })
-
+remapping("n", "<leader>bq", "<cmd>BufferClose<cr>", { desc = "Close current buffer" })
+remapping("n", "<leader>bQ", "<cmd>BufferCloseAllButVisible<cr>", { desc = "Close all buffer but current" })
 
 -- Open lazygit floating window
 remapping({ "n", "v" }, "<leader>g", function()
