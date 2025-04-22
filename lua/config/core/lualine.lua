@@ -8,7 +8,10 @@ function M.opts()
                     "navic",
                     color_correction = nil,
                     navic_opts = nil
-                }
+                },
+            },
+            lualine_x = {
+                'lsp_status',
             }
         },
         options = {
