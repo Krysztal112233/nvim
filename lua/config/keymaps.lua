@@ -30,6 +30,9 @@ remapping("n", "<leader>bQ", "<cmd>BufferCloseAllButVisible<cr>", { desc = "Clos
 remapping({ "n", "v" }, "<leader>g", function()
     Snacks.lazygit.open()
 end, { desc = "Open lazygit in floating" })
+remapping({ "n", "v" }, "<leader>G", function()
+    require("neogit").open()
+end, { desc = "Open neogit in floating" })
 
 -- Copy, cut, paste
 remapping({ "n", "v" }, "<C-c>", '"+y', { desc = "Copy to system clipboard" })
