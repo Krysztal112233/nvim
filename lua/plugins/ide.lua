@@ -8,9 +8,16 @@ return {
         opts_extend = { "sources.default" },
     },
 
+    -- nvim lsp-config
+    {
+        "neovim/nvim-lspconfig",
+        lazy = false,
+    },
+
     -- Mason
     {
         "williamboman/mason.nvim",
+        dependencies = { "neovim/nvim-lspconfig" },
         lazy = false,
         config = require("config.core.mason").config,
     },
@@ -31,17 +38,6 @@ return {
                 end,
             },
         },
-    },
-
-    -- nvim lsp-config
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "nvim-java/nvim-java",
-        },
-        lazy = false,
-        config = require("config.core.nvim-lspconfig").config,
     },
 
     -- formatting

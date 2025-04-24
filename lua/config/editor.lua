@@ -5,6 +5,9 @@ local colors_night = "monokai-pro-octagon" -- Dark colorscheme
 -- nowrap
 vim.opt.wrap = false
 
+-- Enable inlay_hint
+vim.lsp.inlay_hint.enable(true)
+
 vim.diagnostic.config({
     virtual_lines = true,
 })
