@@ -34,7 +34,8 @@ M.override_handles = {
         vim.lsp.enable("lua_ls")
         vim.lsp.config("lua_ls", cfg)
     end,
-    ["rust_analyzer"] = function() end
+    ["rust_analyzer"] = function() end,
+    ["jdtls"] = function() end
 }
 
 

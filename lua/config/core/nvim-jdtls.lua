@@ -1,27 +1,11 @@
 local M = {}
 
 function M.opts()
-    local jdtls_path = ""
-    local lombok_path = ""
-
-
+    local lombok_path = vim.fs.joinpath(vim.fn.stdpath("data"), "mason", "packages", "lombok-nightly", "lombok.jar")
     return {
         cmd = {
-            'java',
-
-            '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-            '-Dosgi.bundles.defaultStartLevel=4',
-            '-Declipse.product=org.eclipse.jdt.ls.core.product',
-            '-Dlog.protocol=true',
-            '-Dlog.level=ALL',
-            '-Xmx8g',
-
-            '--add-modules=ALL-SYSTEM',
-            '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-            '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-
-            '-jar', jdtls_path,
-            'java-agent:', lombok_path,
+            "jdtls",
+            ("--jvm-arg=-javaagent:%s"):format(lombok_path),
         },
 
         root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),

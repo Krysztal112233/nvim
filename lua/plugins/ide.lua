@@ -30,14 +30,6 @@ return {
             "neovim/nvim-lspconfig",
         },
         config = require("config.core.mason-lspconfig").config,
-        opts = {
-            handlers = {
-                ["jdtls"] = function()
-                    require("java").setup()
-                    require("lspconfig").jdtls.setup() -- Add this line for using the wrapped jdtls.setup
-                end,
-            },
-        },
     },
 
     -- formatting
