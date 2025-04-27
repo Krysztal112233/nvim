@@ -15,6 +15,7 @@ M.ensure_install = {
     "taplo",
     "volar",
     "yamlls",
+    "markdown_oxide",
 }
 
 M.override_handles = {
