@@ -9,29 +9,22 @@ function M.opts()
         },
 
         completion = {
-            menu = {
-                draw = {
-                    columns = { { "kind_icon", "label", "label_description", "source_name", gap = 1 } },
-                    components = {
-                        label_description = { width = { max = 50 } },
-                        source_name = {
-                            text = function(ctx)
-                                return "[" .. ctx.source_name .. "]"
-                            end,
-                        },
-                    },
-                },
-            },
             documentation = {
                 auto_show = true,
-                auto_show_delay_ms = 2000,
+                auto_show_delay_ms = 500,
             },
-            ghost_text = { enabled = true },
         },
         sources = {
             default = { "lsp", "path", "snippets", "buffer" },
         },
-        fuzzy = { implementation = "prefer_rust_with_warning" },
+        fuzzy = {
+            implementation = "prefer_rust_with_warning",
+            sorts = {
+                'exact',
+                'score',
+                'sort_text',
+            },
+        },
         signature = { enabled = true },
     }
 end
