@@ -1,7 +1,9 @@
 local M = {}
 
 function M.opts()
-    local lombok_path = vim.fs.joinpath(vim.fn.stdpath("data"), "mason", "packages", "lombok-nightly", "lombok.jar")
+    local mason = require("mason-registry")
+    local lombok_path = vim.fs.joinpath(mason.get_package("lombok-edge"):get_install_path(), "lombok.jar")
+
     return {
         cmd = {
             "jdtls",
