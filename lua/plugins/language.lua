@@ -46,5 +46,12 @@ return {
         "mfussenegger/nvim-jdtls",
         lazy = true,
         ft = { "java", "gradle" }
+    },
+
+    -- Extra Golang support
+    {
+        "crispgm/nvim-go",
+        lazy = true,
+        ft = { "go" }
     }
 }
