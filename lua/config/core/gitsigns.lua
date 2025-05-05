@@ -4,8 +4,8 @@ function M.cond()
     return vim.fn.isdirectory('.git') == 1
 end
 
-function M.config()
-    require('gitsigns').setup {
+function M.opts()
+    return {
         signs = {
             add          = { text = '┃' },
             change       = { text = '┃' },
@@ -24,6 +24,10 @@ function M.config()
         },
         current_line_blame = true, -- Show current line's Git blame
     }
+end
+
+function M.config()
+    require('gitsigns').setup()
 end
 
 return M

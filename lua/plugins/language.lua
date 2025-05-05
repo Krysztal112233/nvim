@@ -52,6 +52,6 @@ return {
     {
         "crispgm/nvim-go",
         lazy = true,
-        ft = { "go" }
-    }
+        ft = { "go" },
+    },
 }

@@ -58,6 +58,7 @@ return {
         "lewis6991/gitsigns.nvim",
         cond = require("config.core.gitsigns").cond,
         config = require("config.core.gitsigns").config,
+        opts = require("config.core.gitsigns").opts,
     },
 
     -- Surrounding modification
