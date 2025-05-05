@@ -6,7 +6,6 @@ function M.opts()
         scope = { enabled = true },
         input = { enabled = true },
         scroll = { enabled = true },
-        lazygit = {},
     }
 end
 

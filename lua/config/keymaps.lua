@@ -26,11 +26,8 @@ remapping("n", "<leader>bl", "<cmd>FzfLua buffers<cr>", { desc = "Open buffer li
 remapping("n", "<leader>bq", "<cmd>BufferClose<cr>", { desc = "Close current buffer" })
 remapping("n", "<leader>bQ", "<cmd>BufferCloseAllButVisible<cr>", { desc = "Close all buffer but current" })
 
--- Open lazygit floating window
+-- Open floating window
 remapping({ "n", "v" }, "<leader>g", function()
-    Snacks.lazygit.open()
-end, { desc = "Open lazygit in floating" })
-remapping({ "n", "v" }, "<leader>G", function()
     require("neogit").open()
 end, { desc = "Open neogit in floating" })
 
