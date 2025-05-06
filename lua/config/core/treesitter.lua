@@ -3,6 +3,7 @@ local M = {}
 M.opts = {
     auto_install = true,
     highlight = { enable = true },
+    indent = { enable = true },
     ensure_installed = { "all" },
     ignore_install = { "org" }
 }

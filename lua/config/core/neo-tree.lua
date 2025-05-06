@@ -1,28 +1,43 @@
 local M = {}
 
-
+-- Ok,ok. Copied from lazyvim.
 function M.config()
     require("neo-tree").setup({
-        popup_border_style = "rounded",
-        default_component_configs = {
-            git_status = {
-                symbols = {
-                    added = "",
-                    deleted = "",
-                    renamed = "",
-                    untracked = "",
-                    ignored = "",
-                    unstaged = "",
-                    staged = "",
-                    conflict = "",
+        sources = { "filesystem", "buffers", "git_status" },
+        open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
+        filesystem = {
+            bind_to_cwd = false,
+            follow_current_file = { enabled = true },
+            use_libuv_file_watcher = true,
+        },
+        window = {
+            mappings = {
+                ["l"] = "open",
+                ["h"] = "close_node",
+                ["<space>"] = "none",
+                ["Y"] = {
+                    function(state)
+                        local node = state.tree:get_node()
+                        local path = node:get_id()
+                        vim.fn.setreg("+", path, "c")
+                    end,
+                    desc = "Copy Path to Clipboard",
                 },
+                ["O"] = {
+                    function(state)
+                        require("lazy.util").open(state.tree:get_node().path, { system = true })
+                    end,
+                    desc = "Open with System Application",
+                },
+                ["P"] = { "toggle_preview", config = { use_float = false } },
             },
         },
-        filesystem = {
-            follow_current_file = {
-                enabled = true,
+        default_component_configs = {
+            indent = {
+                with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+                expander_highlight = "NeoTreeExpander",
             },
-        }
+        },
     })
 end
 
