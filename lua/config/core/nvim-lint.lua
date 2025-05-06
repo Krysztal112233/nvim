@@ -1,13 +1,12 @@
--- Copied from kickstart.nvim, I dont't know why
-
 local M = {}
 
 function M.config()
     local lint = require("lint")
     lint.linters_by_ft = {
-        markdown = { "deno" },
+        markdown = { "deno", "cspell" },
         json = { "deno" },
         text = { "cspell" },
+        norg = { "cspell" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

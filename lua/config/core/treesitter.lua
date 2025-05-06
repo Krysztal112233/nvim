@@ -2,36 +2,9 @@ local M = {}
 
 M.opts = {
     auto_install = true,
-    highlight = {
-        enable = true,
-    },
-    ensure_installed = {
-        "bash",
-        "c",
-        "cpp",
-        "diff",
-        "gleam",
-        "gomod",
-        "gosum",
-        "gowork",
-        "javascript",
-        "jsdoc",
-        "json",
-        "jsonc",
-        "lua",
-        "luadoc",
-        "luap",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "toml",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
-    },
+    highlight = { enable = true },
+    ensure_installed = { "all" },
+    ignore_install = { "org" }
 }
 
 function M.config(opts)
