@@ -19,6 +19,7 @@ return {
         event = "VeryLazy",
         dependencies = {
             "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
         },
         config = require("config.core.noice").config
     },
@@ -165,5 +166,6 @@ return {
             "ibhagwan/fzf-lua",
         },
         config = require("config.core.neogit").config
-    }
+    },
+
 }

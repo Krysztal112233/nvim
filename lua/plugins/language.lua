@@ -29,7 +29,6 @@ return {
             "nvim-treesitter/nvim-treesitter",
         },
         config = function()
-            ---@diagnostic disable-next-line: inject-field
             require("nvim-treesitter.parsers").get_parser_configs().just = {
                 install_info = {
                     url = "https://github.com/IndianBoy42/tree-sitter-just", -- local path or git repo
@@ -46,5 +45,20 @@ return {
         "mfussenegger/nvim-jdtls",
         lazy = true,
         ft = { "java", "gradle" }
+    },
+
+
+    {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        dependencies = {
+            "justinsgithub/wezterm-types"
+        },
+        opts = {
+            library = {
+                "lazy.nvim",
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            }
+        },
     },
 }
