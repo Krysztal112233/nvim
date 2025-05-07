@@ -19,10 +19,20 @@ return {
         event = "VeryLazy",
         dependencies = {
             "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
         },
         config = require("config.core.noice").config
     },
+
+
+    {
+        "rcarriga/nvim-notify",
+        config = function()
+            require("notify").setup({
+                background_colour = "#000000",
+            })
+        end
+    },
+
 
     -- Tab bar
     {
@@ -86,8 +96,6 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-        opts = require("config.core.treesitter").opts,
         config = require("config.core.treesitter").config,
     },
 
@@ -162,4 +170,18 @@ return {
         config = require("config.core.neogit").config
     },
 
+    -- async linter tool
+    {
+        "mfussenegger/nvim-lint",
+        event = { "BufReadPre", "BufNewFile" },
+        config = require("config.core.nvim-lint").config,
+    },
+
+    -- Neorg
+    {
+        "nvim-neorg/neorg",
+        lazy = false,
+        version = "*",
+        config = require("config.core.neorg").config
+    }
 }

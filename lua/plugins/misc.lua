@@ -4,8 +4,9 @@ return {
     { "kaicataldo/material.vim" },
 
     {
-        "mfussenegger/nvim-lint",
-        event = { "BufReadPre", "BufNewFile" },
-        config = require("config.core.nvim-lint").config,
+        "rebelot/kanagawa.nvim", -- neorg needs a colorscheme with treesitter support
+        config = function()
+            vim.cmd.colorscheme("kanagawa")
+        end,
     },
 }
