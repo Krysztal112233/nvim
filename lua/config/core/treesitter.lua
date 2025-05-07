@@ -10,6 +10,7 @@ function M.opts()
             "go",
             "gomod",
             "gosum",
+            "java",
             "lua",
             "markdown",
             "markdown_inline",
