@@ -1,7 +1,7 @@
 return {
     { "folke/tokyonight.nvim" },
     { "loctvl842/monokai-pro.nvim" },
-
+    { "kaicataldo/material.vim" },
 
     {
         "mfussenegger/nvim-lint",

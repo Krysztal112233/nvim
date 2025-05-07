@@ -40,12 +40,6 @@ return {
         config = require("config.core.barbar").config,
     },
 
-    -- Extensible UI for Neovim notifications and LSP progress messages.
-    {
-        "j-hui/fidget.nvim",
-        config = true,
-    },
-
     -- Auto pair
     {
         "windwp/nvim-autopairs",
