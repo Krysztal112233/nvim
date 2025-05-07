@@ -2,8 +2,6 @@
 local colors_day = "material"              -- Light colorscheme
 local colors_night = "monokai-pro-octagon" -- Dark colorscheme
 
-
-
 -- Apply colorscheme based on the time of day
 local function apply_colorscheme()
     vim.o.termguicolors = true

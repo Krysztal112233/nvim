@@ -6,14 +6,25 @@ function M.opts()
 
     return {
         load = {
-            ["core.defaults"] = {},
+            ["core.completion"] = { config = { engine = { module_name = "external.lsp-completion" } } },
             ["core.concealer"] = {},
+            ["core.defaults"] = {},
+            ["core.journal"] = { config = { strategy = "flat" } },
             ["core.summary"] = {},
             ["core.dirman"] = {
                 config = {
                     workspaces = { notes = "~/notes" },
                     default_workspace = "notes"
                 },
+            },
+            ["external.interim-ls"] = {
+                config = {
+                    completion_provider = {
+                        enable = true,
+                        documentation = true,
+                        categories = false,
+                    }
+                }
             },
         },
     }

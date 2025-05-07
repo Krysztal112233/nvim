@@ -180,8 +180,10 @@ return {
     -- Neorg
     {
         "nvim-neorg/neorg",
+        dependencies = {
+            "benlubas/neorg-interim-ls"
+        },
         lazy = false,
-        version = "*",
         config = require("config.core.neorg").config
     }
 }

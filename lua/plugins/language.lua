@@ -46,19 +46,4 @@ return {
         lazy = true,
         ft = { "java", "gradle" }
     },
-
-
-    {
-        "folke/lazydev.nvim",
-        ft = "lua",
-        dependencies = {
-            "justinsgithub/wezterm-types"
-        },
-        opts = {
-            library = {
-                "lazy.nvim",
-                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-            }
-        },
-    },
 }
