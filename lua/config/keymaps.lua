@@ -1,16 +1,10 @@
 ---@diagnostic disable: undefined-global
 local remapping = vim.keymap.set
-local global = vim.g
-local opt = vim.opt
-
--- Set leader key
-global.mapleader = " "
-
--- Set tab width
-opt.tabstop = 4
 
 -- Set `jk` as ESC
 remapping("i", "jk", "<ESC>", { noremap = true })
+remapping({ "n", "v" }, "H", "0", { noremap = true })
+remapping({ "n", "v" }, "L", "$", { noremap = true })
 
 -- Misc function mapping
 remapping("n", "<leader>?", "<cmd>WhichKey<cr>", { desc = "Open `WhichKey` window'" })
