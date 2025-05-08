@@ -48,11 +48,11 @@ vim.fn.sign_define("DiagnosticSignHint", { text = "H", texthl = "DiagnosticSignH
 
 -- Enable `.editorconfig`
 vim.g.editorconfig = true
-vim.g.markdown_fenced_languages = {
-    "ts=typescript",
-}
+vim.g.markdown_fenced_languages = { "ts=typescript" }
 
 vim.o.autoread = true
+vim.o.clipboard = "unnamedplus"
+
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
     command = "if mode() != 'c' | checktime | endif",
     pattern = { "*" },

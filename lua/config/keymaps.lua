@@ -31,11 +31,6 @@ remapping({ "n", "v" }, "<leader>g", function()
     require("neogit").open()
 end, { desc = "Open neogit in floating" })
 
--- Copy, cut, paste
-remapping({ "n", "v" }, "<C-c>", '"+y', { desc = "Copy to system clipboard" })
-remapping({ "n", "v" }, "<C-v>", '"+gP', { desc = "Paste from system clipboard" })
-remapping({ "n", "v" }, "<C-x>", '"+d', { desc = "Cut to system clipboard" })
-
 -- Comment lines
 remapping(
     { "n", "v" },
