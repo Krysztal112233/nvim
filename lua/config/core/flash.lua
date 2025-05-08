@@ -1,10 +1,6 @@
 local M = {}
 
 function M.keys()
-    return {}
-end
-
-function M.opts()
     return {
         {
             "s",

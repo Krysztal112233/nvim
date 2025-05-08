@@ -42,10 +42,10 @@ return {
     },
 
     -- Debugger
-    {
-        "mfussenegger/nvim-dap",
-        config = require("config.core.dap.nvim-dap").config,
-    },
+    -- {
+    --     "mfussenegger/nvim-dap",
+    --     config = require("config.core.dap.nvim-dap").config,
+    -- },
 
     -- IDE like text wrapping
     {

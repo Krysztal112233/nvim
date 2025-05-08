@@ -23,7 +23,6 @@ return {
         config = require("config.core.noice").config
     },
 
-
     {
         "rcarriga/nvim-notify",
         config = function()
@@ -131,13 +130,7 @@ return {
     {
         "folke/flash.nvim",
         event = "VeryLazy",
-        opts = require("config.core.flash").opts,
         keys = require("config.core.flash").keys,
-    },
-
-    -- Wow, dot for repeating last operation!
-    {
-        "tpope/vim-repeat",
     },
 
     -- Scrollbar
