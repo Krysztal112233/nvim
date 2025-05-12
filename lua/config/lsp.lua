@@ -18,5 +18,4 @@ M.ensure_install = {
     "markdown_oxide",
 }
 
-
 return M

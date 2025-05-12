@@ -46,22 +46,7 @@ remapping("n", "<C-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
 remapping("n", "<C-S-s>", "<cmd>wa<cr>", { desc = "Save all buffer" })
 
 -- Terminal mappings
--- Open terminal
-remapping(
-    "n",
-    "<C-t>t",
-    "<cmd>ToggleTerm size = 20, direction=horizontal start_in_insert=true <cr>",
-    { desc = "Open terminal at bottom" }
-)                                                                                                        -- Bottom terminal
-remapping("n", "<C-t>f", "<cmd>ToggleTerm  direction=float<cr>", { desc = "Open terminal in floating" }) -- Floating terminal
--- Close terminal
-remapping(
-    "t",
-    "<C-t>t",
-    "<cmd>ToggleTerm size = 20, direction=horizontal start_in_insert=true <cr>",
-    { desc = "Open terminal at bottom" }
-)                                                                                                        -- Bottom terminal
-remapping("t", "<C-t>f", "<cmd>ToggleTerm  direction=float<cr>", { desc = "Open terminal in floating" }) -- Floating terminal
+remapping({ "t", "n" }, "<C-t>", "<cmd>ToggleTerm  direction=float<cr>", { desc = "Open terminal in floating" })
 
 -- LSP function mapping
 remapping({ "n", "v" }, "K", vim.lsp.buf.signature_help, { desc = "Open `signature_help` provided by LSP" })
