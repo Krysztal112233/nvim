@@ -9,6 +9,8 @@ function M.opts()
             ["core.completion"] = { config = { engine = { module_name = "external.lsp-completion" } } },
             ["core.concealer"] = {},
             ["core.defaults"] = {},
+            ["core.export.markdown"] = {},
+            ["core.export"] = {},
             ["core.journal"] = { config = { strategy = "flat" } },
             ["core.summary"] = {},
             ["core.dirman"] = {

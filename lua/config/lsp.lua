@@ -9,13 +9,15 @@ M.ensure_install = {
     "jdtls",
     "jsonls",
     "lua_ls",
+    "markdown_oxide",
     "neocmake",
     "pylsp",
     "rust_analyzer",
     "taplo",
+    "ts_ls",
     "volar",
+    "vtsls",
     "yamlls",
-    "markdown_oxide",
 }
 
 return M
