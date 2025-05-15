@@ -1,5 +1,5 @@
 -- Configuration for colorschemes
-local colors_day = "material"              -- Light colorscheme
+local colors_day = "monokai-pro-light"     -- Light colorscheme
 local colors_night = "monokai-pro-octagon" -- Dark colorscheme
 
 -- Apply colorscheme based on the time of day

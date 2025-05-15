@@ -18,7 +18,7 @@ function M.opts()
         completion = {
             documentation = {
                 auto_show = true,
-                auto_show_delay_ms = 500,
+                auto_show_delay_ms = 100,
             },
             menu = { draw = { treesitter = { 'lsp' } } },
         },
@@ -29,7 +29,6 @@ function M.opts()
             implementation = "prefer_rust_with_warning",
             sorts = { 'exact', 'score', 'sort_text', },
         },
-        signature = { enabled = true },
     }
 end
 
