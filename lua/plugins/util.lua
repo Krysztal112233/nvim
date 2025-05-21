@@ -133,12 +133,6 @@ return {
         keys = require("config.core.flash").keys,
     },
 
-    -- Scrollbar
-    {
-        "petertriho/nvim-scrollbar",
-        config = require("config.core.scroll").config,
-    },
-
     -- Rename preview
     {
         "smjonas/inc-rename.nvim",
