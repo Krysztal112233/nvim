@@ -172,5 +172,11 @@ return {
         },
         lazy = false,
         config = require("config.core.neorg").config
+    },
+
+    -- Scroll bar
+    {
+        "dstein64/nvim-scrollview",
+        config = require("config.core.scrollview").config
     }
 }
