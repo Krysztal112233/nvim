@@ -68,3 +68,12 @@ remapping(
 remapping({ "n", "v" }, "<leader>tb", "<cmd>FzfLua diagnostics_document<cr>",
     { desc = "Open document diagnostic in floating" })
 remapping({ "n", "v" }, "<C-f>", "<cmd>FzfLua lsp_code_actions<cr>", {})
+
+remapping({ "n", "v" }, "<A-d>", function()
+    local enable = not vim.diagnostic.config().virtual_lines
+    vim.diagnostic.config({
+        virtual_lines = enable
+    })
+
+    vim.notify(("`virtual_lines`: %s"):format(enable), vim.log.levels.INFO)
+end, { desc = "Switch virtualline and lineend diagnostics" })
