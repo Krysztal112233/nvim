@@ -12,7 +12,7 @@ function M.opts()
             javascript = { "deno_fmt", "prettier" },
             json = { "deno_fmt" },
             lua = { "stylua", lsp_format = "fallback" },
-            markdown = { "prettier", "deno_fmt" },
+            markdown = { "prettier" },
             rust = { "rustfmt", lsp_format = "fallback" },
             scala = { lsp_format = "fallback" },
             sh = { "shfmt", lsp_format = "fallback" },
