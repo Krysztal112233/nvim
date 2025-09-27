@@ -3,14 +3,14 @@ return {
     {
         "akinsho/toggleterm.nvim",
         lazy = false,
-        config = true
+        config = true,
     },
 
     -- `which-key`, powerful command prompt
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
-        opts = require("config.core.which-key").opts
+        opts = require("config.core.which-key").opts,
     },
 
     -- lazy.nvim
@@ -20,7 +20,7 @@ return {
         dependencies = {
             "MunifTanjim/nui.nvim",
         },
-        config = require("config.core.noice").config
+        config = require("config.core.noice").config,
     },
 
     {
@@ -29,16 +29,15 @@ return {
             require("notify").setup({
                 background_colour = "#000000",
             })
-        end
+        end,
     },
-
 
     -- Tab bar
     {
         "romgrk/barbar.nvim",
         event = "VeryLazy",
         dependencies = {
-            "lewis6991/gitsigns.nvim",     -- for git status
+            "lewis6991/gitsigns.nvim", -- for git status
             "nvim-tree/nvim-web-devicons", -- for file icons
         },
 
@@ -143,7 +142,7 @@ return {
     {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = require("config.core.fzf-lua").config
+        config = require("config.core.fzf-lua").config,
     },
 
     -- Powerful git
@@ -154,7 +153,7 @@ return {
             "sindrets/diffview.nvim",
             "ibhagwan/fzf-lua",
         },
-        config = require("config.core.neogit").config
+        config = require("config.core.neogit").config,
     },
 
     -- async linter tool
@@ -164,19 +163,9 @@ return {
         config = require("config.core.nvim-lint").config,
     },
 
-    -- Neorg
-    {
-        "nvim-neorg/neorg",
-        dependencies = {
-            "benlubas/neorg-interim-ls"
-        },
-        lazy = false,
-        config = require("config.core.neorg").config
-    },
-
     -- Scroll bar
     {
         "dstein64/nvim-scrollview",
-        config = require("config.core.scrollview").config
-    }
+        config = require("config.core.scrollview").config,
+    },
 }

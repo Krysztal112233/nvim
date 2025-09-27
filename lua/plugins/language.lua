@@ -44,6 +44,13 @@ return {
     {
         "mfussenegger/nvim-jdtls",
         lazy = true,
-        ft = { "java", "gradle" }
+        ft = { "java", "gradle" },
+    },
+
+    -- typescript support via deno-nvim
+    {
+        "sigmaSd/deno-nvim",
+        lazy = true,
+        ft = { "typescript", "javascript" },
     },
 }

@@ -1,7 +1,5 @@
 local M = {}
 
-
-
 function M.opts()
 end
 
