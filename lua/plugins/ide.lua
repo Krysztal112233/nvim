@@ -40,28 +40,4 @@ return {
         config = require("config.core.conform-nvim").config,
         ft = vim.tbl_keys(require("config.core.conform-nvim").opts().formatters_by_ft),
     },
-
-    -- Debugger
-    -- {
-    --     "mfussenegger/nvim-dap",
-    --     config = require("config.core.dap.nvim-dap").config,
-    -- },
-
-    -- IDE like text wrapping
-    {
-        "SmiteshP/nvim-navic",
-        dependencies = "neovim/nvim-lspconfig",
-        opts = require("config.core.nvim-navic").opts,
-    },
-
-    -- -- VSCode like scoped context
-    -- {
-    --     "nvim-treesitter/nvim-treesitter-context",
-    --     dependencies = "nvim-treesitter/nvim-treesitter",
-    --     config = function()
-    --         vim.keymap.set("n", "[c", function()
-    --             require("treesitter-context").go_to_context(vim.v.count1)
-    --         end, { silent = true })
-    --     end
-    -- }
 }

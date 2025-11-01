@@ -5,29 +5,29 @@ function M.opts()
         keymap = {
             preset = "enter",
 
-            ['<Up>'] = { 'select_prev', 'fallback' },
-            ['<Down>'] = { 'select_next', 'fallback' },
-            ['<C-k>'] = { 'select_prev', 'fallback_to_mappings' },
-            ['<C-j>'] = { 'select_next', 'fallback_to_mappings' },
+            ["<Up>"] = { "select_prev", "fallback" },
+            ["<Down>"] = { "select_next", "fallback" },
+            ["<C-k>"] = { "select_prev", "fallback_to_mappings" },
+            ["<C-j>"] = { "select_next", "fallback_to_mappings" },
         },
         appearance = {
-            use_nvim_cmp_as_default = true,
             nerd_font_variant = "mono",
         },
-
+        signature = { enabled = true },
         completion = {
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 100,
             },
-            menu = { draw = { treesitter = { 'lsp' } } },
+            ghost_text = { enabled = false },
+            menu = { draw = { treesitter = { "lsp" } } },
         },
         sources = {
             default = { "lsp", "path", "snippets", "buffer" },
         },
         fuzzy = {
             implementation = "prefer_rust_with_warning",
-            sorts = { 'exact', 'score', 'sort_text', },
+            sorts = { "exact", "score", "sort_text" },
         },
     }
 end

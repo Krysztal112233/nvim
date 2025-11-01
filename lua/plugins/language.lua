@@ -1,11 +1,4 @@
 return {
-    -- Rust
-    {
-        "mrcjkb/rustaceanvim",
-        lazy = false,
-        config = require("config.core.language.rustaceanvim").config,
-    },
-
     -- ScalaMetals
     {
         "scalameta/nvim-metals",

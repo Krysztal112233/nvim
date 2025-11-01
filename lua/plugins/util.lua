@@ -25,11 +25,7 @@ return {
 
     {
         "rcarriga/nvim-notify",
-        config = function()
-            require("notify").setup({
-                background_colour = "#000000",
-            })
-        end,
+        config = function() end,
     },
 
     -- Tab bar
@@ -95,11 +91,6 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = require("config.core.treesitter").config,
-    },
-
-    {
-        "L3MON4D3/LuaSnip",
-        build = "make install_jsregexp",
     },
 
     -- Colorful pair

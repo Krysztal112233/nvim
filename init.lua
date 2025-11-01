@@ -11,6 +11,3 @@ require("config.options")
 
 -- Apply editor settings
 require("config.editor")
-
--- Apply lsp configurations
-require("config.lsp")

@@ -14,7 +14,6 @@ remapping("n", "<leader>fp", "<cmd>FzfLua live_grep<cr>", { desc = "Find text in
 remapping({ "n", "v" }, "<C-e>", "<cmd>Neotree<cr>", { desc = "Focus on neotree" })
 remapping({ "n", "v" }, "<A-p>", "<cmd>FzfLua lsp_document_symbols<cr>", { desc = "Open symbols navigator" })
 
-
 -- Buffer management
 remapping("n", "<leader>bl", "<cmd>FzfLua buffers<cr>", { desc = "Open buffer list" })
 remapping("n", "<leader>bq", "<cmd>BufferClose<cr>", { desc = "Close current buffer" })
@@ -50,9 +49,6 @@ remapping({ "t", "n" }, "<C-t>", "<cmd>ToggleTerm  direction=float<cr>", { desc 
 
 -- LSP function mapping
 remapping({ "n", "v" }, "K", vim.lsp.buf.signature_help, { desc = "Open `signature_help` provided by LSP" })
-remapping({ "n", "v" }, "<leader>lrn", function()
-    return ":IncRename " .. vim.fn.expand("<cword>")
-end, { desc = "Action `rename` provided by LSP", expr = true })
 remapping({ "n", "v" }, "<F2>", function()
     return ":IncRename " .. vim.fn.expand("<cword>")
 end, { desc = "Action `rename` provided by LSP", expr = true })
@@ -65,14 +61,18 @@ remapping(
     "<cmd>FzfLua diagnostics_workspace<cr>",
     { desc = "Open workspace diagnostic in floating" }
 )
-remapping({ "n", "v" }, "<leader>tb", "<cmd>FzfLua diagnostics_document<cr>",
-    { desc = "Open document diagnostic in floating" })
+remapping(
+    { "n", "v" },
+    "<leader>tb",
+    "<cmd>FzfLua diagnostics_document<cr>",
+    { desc = "Open document diagnostic in floating" }
+)
 remapping({ "n", "v" }, "<C-f>", "<cmd>FzfLua lsp_code_actions<cr>", {})
 
 remapping({ "n", "v" }, "<A-d>", function()
     local enable = not vim.diagnostic.config().virtual_lines
     vim.diagnostic.config({
-        virtual_lines = enable
+        virtual_lines = enable,
     })
 
     vim.notify(("`virtual_lines`: %s"):format(enable), vim.log.levels.INFO)
