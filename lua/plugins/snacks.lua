@@ -4,7 +4,6 @@ return {
     local snacks = require 'snacks'
     snacks.setup {
       indent = {},
-      scroll = {},
       lazygit = {},
       dashboard = {
         formats = {
