@@ -9,6 +9,7 @@ return {
     vim.opt.splitkeep = 'screen'
   end,
   opts = {
+    animate = { enabled = false },
     --- @type (Edgy.View.Opts|string)[]
     bottom = {
       {
