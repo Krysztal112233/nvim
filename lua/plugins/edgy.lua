@@ -23,7 +23,10 @@ return {
       },
 
       ---@diagnostic disable-next-line: assign-type-mismatch
-      { ft = 'qf', title = 'QuickFix' },
+      { title = 'QuickFix', ft = 'qf' },
+
+      ---@diagnostic disable-next-line: assign-type-mismatch
+      { title = 'DBUI', ft = 'dbui' },
     },
     --- @type (Edgy.View.Opts|string)[]
     left = {
