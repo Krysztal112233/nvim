@@ -13,6 +13,8 @@ return {
     --- @type (Edgy.View.Opts|string)[]
     bottom = {
       {
+        ---@diagnostic disable-next-line: assign-type-mismatch
+        title = 'Terminal',
         ft = 'toggleterm',
         size = { height = 0.4 },
         ---@diagnostic disable-next-line: unused-local
@@ -31,9 +33,9 @@ return {
     --- @type (Edgy.View.Opts|string)[]
     left = {
       {
-        ft = 'neo-tree',
         ---@diagnostic disable-next-line: assign-type-mismatch
         title = 'Filesystem',
+        ft = 'neo-tree',
       },
     },
     --- @type (Edgy.View.Opts|string)[]

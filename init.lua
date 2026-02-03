@@ -154,7 +154,15 @@ require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      { 'mason-org/mason.nvim', opts = {} },
+      {
+        'mason-org/mason.nvim',
+        opts = {
+          registries = {
+            'github:mason-org/mason-registry',
+            'github:Krysztal112233/mason-registry',
+          },
+        },
+      },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       { 'j-hui/fidget.nvim', opts = {} },
@@ -403,9 +411,14 @@ require('lazy').setup({
         end
       end,
       formatters_by_ft = {
+        bash = { 'shfmt' },
+        astro = { 'prettier' },
+        css = { 'biome' },
+        javascript = { 'biome' },
+        json = { 'biome' },
         lua = { 'stylua' },
-        typescript = { 'deno' },
-        typescriptreact = { 'deno' },
+        typescript = { 'biome' },
+        typescriptreact = { 'biome' },
       },
     },
   },
@@ -413,7 +426,7 @@ require('lazy').setup({
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
-    branch = 'main',
+    tag = '1.*',
     dependencies = {
       -- Snippet Engine
       {
