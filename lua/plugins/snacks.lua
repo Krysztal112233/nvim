@@ -69,6 +69,17 @@ return {
       end,
       desc = 'Lazygit',
     },
+    {
+      '<leader>tD',
+      function()
+        if require('snacks').dim.enabled then
+          require('snacks').dim.disable()
+        else
+          require('snacks').dim.enable()
+        end
+      end,
+      desc = '[T]oggle [D]im',
+    },
   },
   lazy = false,
 }

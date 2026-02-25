@@ -29,6 +29,16 @@ return {
 
       ---@diagnostic disable-next-line: assign-type-mismatch
       { title = 'DBUI', ft = 'dbui' },
+
+      {
+        ---@diagnostic disable-next-line: assign-type-mismatch
+        title = 'Trouble',
+        ft = 'trouble',
+        pinned = true,
+        open = function()
+          vim.cmd 'Trouble diagnostics toggle'
+        end,
+      },
     },
     --- @type (Edgy.View.Opts|string)[]
     left = {
@@ -37,15 +47,25 @@ return {
         title = 'Filesystem',
         ft = 'neo-tree',
       },
-    },
-    --- @type (Edgy.View.Opts|string)[]
-    right = {
+
       {
         ---@diagnostic disable-next-line: assign-type-mismatch
         title = 'Outline',
         ft = 'Outline',
         pinned = true,
         open = 'Outline',
+      },
+    },
+    --- @type (Edgy.View.Opts|string)[]
+    right = {
+      {
+        ---@diagnostic disable-next-line: assign-type-mismatch
+        size = { width = 0.3 },
+        title = 'Sidekick',
+        ft = 'sidekick_terminal',
+        open = function()
+          require('sidekick.cli').toggle 'opencode'
+        end,
       },
     },
   },

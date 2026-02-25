@@ -233,12 +233,13 @@ require('lazy').setup({
         end
       end,
       formatters_by_ft = {
-        bash = { 'shfmt' },
         astro = { 'prettier' },
+        bash = { 'shfmt' },
         css = { 'biome' },
         javascript = { 'biome' },
         json = { 'biome' },
         lua = { 'stylua' },
+        sql = { 'sql_formatter' },
         typescript = { 'biome' },
         typescriptreact = { 'biome' },
       },
