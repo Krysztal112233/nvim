@@ -3,6 +3,9 @@ return {
   version = '*', -- use latest release, remove to use latest commit
   ft = 'markdown',
   lazy = false,
+  cond = function()
+    return vim.fn.isdirectory(vim.fn.expand '~/Documents/Obsidian Vault') == 1
+  end,
   ---@module 'obsidian'
   ---@type obsidian.config
   opts = {
