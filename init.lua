@@ -236,12 +236,15 @@ require('lazy').setup({
         astro = { 'prettier' },
         bash = { 'shfmt' },
         css = { 'biome' },
-        javascript = { 'biome' },
-        json = { 'biome' },
         lua = { 'stylua' },
         sql = { 'sql_formatter' },
-        typescript = { 'biome' },
-        typescriptreact = { 'biome' },
+
+        javascript = { 'oxfmt' },
+        javascriptreact = { 'oxfmt' },
+        json = { 'oxfmt' },
+        typescript = { 'oxfmt' },
+        typescriptreact = { 'oxfmt' },
+        vue = { 'oxfmt' },
       },
     },
   },
@@ -249,7 +252,7 @@ require('lazy').setup({
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
-    tag = 'v1.*',
+    version = '1.*',
     dependencies = {
       -- Snippet Engine
       {
