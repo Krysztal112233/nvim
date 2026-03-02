@@ -15,7 +15,7 @@ return {
     {
       '<leader>aa',
       function()
-        require('sidekick.cli').toggle 'opencode'
+        require('sidekick.cli').toggle { filter = { installed = true } }
       end,
       desc = 'Sidekick Toggle CLI',
     },
