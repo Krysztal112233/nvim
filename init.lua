@@ -190,7 +190,14 @@ require('lazy').setup({
         automatic_installation = false,
         handlers = {
           function(server_name)
-            local server = servers[server_name] or {}
+            -- Only auto-setup servers that are explicitly configured in `servers`.
+            -- This avoids auto-attaching extra LSP clients (e.g. `ts_ls`) just
+            -- because they're installed in Mason.
+            local server = servers[server_name]
+            if server == nil then
+              return
+            end
+            server = vim.deepcopy(server)
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
