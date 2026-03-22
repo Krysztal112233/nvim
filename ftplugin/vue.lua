@@ -7,6 +7,18 @@ local vue_plugin = {
   languages = { 'vue' },
   configNamespace = 'typescript',
 }
+-- local vtsls_config = {
+--   settings = {
+--     vtsls = {
+--       tsserver = {
+--         globalPlugins = {
+--           vue_plugin,
+--         },
+--       },
+--     },
+--   },
+--   filetypes = tsserver_filetypes,
+-- }
 
 local ts_ls_config = {
   init_options = {
@@ -20,6 +32,7 @@ local ts_ls_config = {
 local vue_ls_config = {}
 
 -- nvim 0.11 or above
+-- vim.lsp.config('vtsls', vtsls_config)
 vim.lsp.config('vue_ls', vue_ls_config)
 vim.lsp.config('ts_ls', ts_ls_config)
-vim.lsp.enable { 'vue_ls' }
+vim.lsp.enable { 'vtsls', 'vue_ls' }

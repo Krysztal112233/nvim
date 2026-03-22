@@ -34,7 +34,6 @@ return {
         ---@diagnostic disable-next-line: assign-type-mismatch
         title = 'Trouble',
         ft = 'trouble',
-        pinned = true,
         open = function()
           vim.cmd 'Trouble diagnostics toggle'
         end,

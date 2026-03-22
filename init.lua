@@ -244,7 +244,9 @@ require('lazy').setup({
         bash = { 'shfmt' },
         css = { 'biome' },
         lua = { 'stylua' },
-        sql = { 'sql_formatter' },
+        markdown = { 'prettier' },
+        nginx = { 'nginxfmt' },
+        sql = { 'sql_formatter', format_on_save = false },
 
         javascript = { 'oxfmt' },
         javascriptreact = { 'oxfmt' },
