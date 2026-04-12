@@ -247,6 +247,7 @@ require('lazy').setup({
         markdown = { 'prettier' },
         nginx = { 'nginxfmt' },
         sql = { 'sql_formatter', format_on_save = false },
+        typst = { 'typstyle' },
 
         javascript = { 'oxfmt' },
         javascriptreact = { 'oxfmt' },
@@ -254,82 +255,6 @@ require('lazy').setup({
         typescript = { 'oxfmt' },
         typescriptreact = { 'oxfmt' },
         vue = { 'oxfmt' },
-      },
-    },
-  },
-
-  { -- Autocompletion
-    'saghen/blink.cmp',
-    event = 'VimEnter',
-    version = '1.*',
-    dependencies = {
-      -- Snippet Engine
-      {
-        'L3MON4D3/LuaSnip',
-        version = '2.*',
-        build = (function()
-          -- Build Step is needed for regex support in snippets.
-          -- This step is not supported in many windows environments.
-          -- Remove the below condition to re-enable on windows.
-          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-            return
-          end
-          return 'make install_jsregexp'
-        end)(),
-        dependencies = {
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
-          },
-        },
-        opts = {},
-      },
-      'folke/lazydev.nvim',
-      'onsails/lspkind.nvim',
-    },
-    --- @module 'blink.cmp'
-    --- @type blink.cmp.Config
-    opts = {
-      keymap = {
-        preset = 'enter',
-
-        ['<Up>'] = { 'select_prev', 'fallback' },
-        ['<Down>'] = { 'select_next', 'fallback' },
-        ['<C-k>'] = { 'select_prev', 'fallback_to_mappings' },
-        ['<C-j>'] = { 'select_next', 'fallback_to_mappings' },
-      },
-      appearance = {
-        nerd_font_variant = 'mono',
-      },
-      -- signature = {
-      --   enabled = true,
-      --   window = { border = 'rounded' },
-      -- },
-      completion = {
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 100,
-        },
-        ghost_text = { enabled = false },
-        menu = {
-          border = 'rounded',
-
-          draw = {
-            treesitter = { 'lsp' },
-          },
-        },
-      },
-      sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
-        per_filetype = {
-          markdown = { 'lsp', 'path', 'snippets' },
-          sql = { 'snippets', 'dadbod', 'buffer' },
-        },
-        providers = {
-          dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
-        },
       },
     },
   },
@@ -346,21 +271,7 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-      highlight = {
-        enable = true,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-      indent = { enable = true, disable = { 'ruby' } },
-    },
+    -- main = 'nvim-treesitter.configs', -- Sets main module to use for opts
   },
 
   { import = 'plugins' },

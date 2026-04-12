@@ -1,6 +1,7 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  lazy = false,
   opts = {
     sections = {
       lualine_c = { 'lsp_status' },
@@ -18,7 +19,7 @@ return {
       },
     },
     options = {
-      theme = 'auto',
+      theme = 'catppuccin-nvim',
       globalstatus = true,
       disabled_filetypes = { statusline = { 'dashboard', 'alpha', 'ministarter', 'snacks_dashboard' } },
       extensions = { 'neo-tree' },
