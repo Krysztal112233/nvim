@@ -3,10 +3,11 @@ return {
   dependencies = { 'mfussenegger/nvim-dap' },
   ft = { 'scala', 'gradle' },
   opts = function()
+    local lsp = require 'core.lsp'
     -- Initialized basic nvim-metals configuration
     local metals_config = require('metals').bare_config()
     metals_config.init_options.statusBarProvider = 'off'
-    metals_config.capabilities = require('blink.cmp').get_lsp_capabilities()
+    metals_config.capabilities = lsp.capabilities()
 
     -- On attach function
     metals_config.on_attach = function(_, _)

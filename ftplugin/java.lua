@@ -1,4 +1,5 @@
 local function opts()
+  local lsp = require 'core.lsp'
   local mason = vim.fs.joinpath(vim.fn.stdpath 'data', 'mason', 'packages')
 
   local lombok_path = vim.fs.joinpath(mason, 'lombok-edge', 'lombok.jar')
@@ -28,6 +29,7 @@ local function opts()
     init_options = {
       bundles = pkg_jar,
     },
+    capabilities = lsp.capabilities(),
   }
 end
 

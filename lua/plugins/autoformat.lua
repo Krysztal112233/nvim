@@ -29,8 +29,21 @@ return { -- Autoformat
       end
     end,
     formatters_by_ft = {
+      astro = { 'prettier' },
+      bash = { 'shfmt' },
+      css = { 'biome' },
       lua = { 'stylua' },
       markdown = { 'prettier' },
+      nginx = { 'nginxfmt' },
+      sql = { 'sql_formatter', format_on_save = false },
+      typst = { 'typstyle' },
+
+      javascript = { 'oxfmt' },
+      javascriptreact = { 'oxfmt' },
+      json = { 'oxfmt' },
+      typescript = { 'oxfmt' },
+      typescriptreact = { 'oxfmt' },
+      vue = { 'oxfmt' },
     },
   },
 }

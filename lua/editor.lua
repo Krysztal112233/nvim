@@ -32,11 +32,7 @@ vim.opt.listchars = require('config').listchar.n
 
 vim.opt.swapfile = false
 
-vim.diagnostic.config {
-  virtual_lines = false,
-  update_in_insert = true,
-  virtual_text = true,
-}
+require('core.diagnostics').setup()
 
 vim.lsp.inlay_hint.enable(true)
 
@@ -93,14 +89,10 @@ vim.keymap.set('i', 'jk', '<ESC>', { noremap = true })
 vim.keymap.set({ 'n', 'v' }, 'H', '0', { noremap = true })
 vim.keymap.set({ 'n', 'v' }, 'L', '$', { noremap = true })
 
-vim.keymap.set({ 'n', 'v' }, '<leader>td', function()
-  local isEnable = vim.diagnostic.config().virtual_lines
-  vim.diagnostic.config {
-    virtual_lines = not isEnable,
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    virtual_text = isEnable,
-  }
-end, { noremap = true, desc = '[T]oggle virtual lines [D]iagnostic' })
+vim.keymap.set({ 'n', 'v' }, '<leader>td', require('core.diagnostics').toggle_virtual_lines, {
+  noremap = true,
+  desc = '[T]oggle virtual lines [D]iagnostic',
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('vanilla-lsp-attach', { clear = true }),
@@ -120,26 +112,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --  For example, in C this would take you to the header.
     map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-    -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
-    ---@param client vim.lsp.Client
-    ---@param method vim.lsp.protocol.Method
-    ---@param bufnr? integer some lsp support methods only in specific files
-    ---@return boolean
-    local function client_supports_method(client, method, bufnr)
-      if vim.fn.has 'nvim-0.11' == 1 then
-        return client:supports_method(method, bufnr)
-      else
-        return client.supports_method(method, { bufnr = bufnr })
-      end
-    end
-
     -- The following two autocommands are used to highlight references of the
     -- word under your cursor when your cursor rests there for a little while.
     --    See `:help CursorHold` for information about when this is executed
     --
     -- When you move your cursor, the highlights will be cleared (the second autocommand).
     local client = vim.lsp.get_client_by_id(event.data.client_id)
-    if client and client_supports_method(client, 'textDocument/documentHighlight', event.buf) then
+    if client and require('core.lsp').supports(client, 'textDocument/documentHighlight', event.buf) then
       local highlight_augroup = vim.api.nvim_create_augroup('vanilla-lsp-highlight', { clear = false })
       vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
         buffer = event.buf,
@@ -166,7 +145,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- code, if the language server you are using supports them
     --
     -- This may be unwanted, since they displace some of your code
-    if client and client_supports_method(client, 'textDocument/inlayHint', event.buf) then
+    if client and require('core.lsp').supports(client, 'textDocument/inlayHint', event.buf) then
       map('<leader>th', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
       end, '[T]oggle Inlay [H]ints')
