@@ -14,6 +14,11 @@ end
 
 function M.setup()
   local servers = {
+    bashls = {
+      filetypes = { 'bash', 'sh', 'zsh' },
+    },
+    markdown_oxide = {},
+    taplo = {},
     clangd = {},
     gleam = {},
     gopls = {},
@@ -40,6 +45,7 @@ function M.setup()
       },
     },
 
+    denols = {},
     ts_ls = {
       init_options = {
         plugins = {
@@ -51,7 +57,7 @@ function M.setup()
           },
         },
       },
-      filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+      filetypes = { 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
     },
     vue_ls = {},
   }
@@ -61,12 +67,15 @@ function M.setup()
     vim.lsp.config(name, config)
   end
 
-  vim.lsp.enable(vim.tbl_keys(servers))
+  vim.lsp.enable(vim.tbl_filter(function(name)
+    return name ~= 'denols'
+  end, vim.tbl_keys(servers)))
 end
 
 function M.ensure_installed()
   return {
     'clangd',
+    'deno',
     'gopls',
     'lua-language-server',
     'sqls',
