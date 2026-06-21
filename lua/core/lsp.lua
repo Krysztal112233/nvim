@@ -74,12 +74,15 @@ end
 
 function M.ensure_installed()
   return {
+    'bash-language-server',
     'clangd',
     'deno',
     'gopls',
     'lua-language-server',
+    'markdown-oxide',
     'sqls',
     'stylua',
+    'taplo',
     'typescript-language-server',
     'vue-language-server',
   }

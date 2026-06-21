@@ -5,6 +5,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.o.breakindent = true
+vim.o.confirm = true
 vim.o.cursorline = true
 vim.o.ignorecase = true
 vim.o.inccommand = 'split'

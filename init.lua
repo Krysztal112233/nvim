@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 require 'editor'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -87,7 +89,51 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    -- main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    branch = 'main',
+    config = function()
+      local function treesitter_try_attach(buf, language)
+        if not vim.treesitter.language.add(language) then
+          return
+        end
+
+        vim.treesitter.start(buf, language)
+
+        if vim.treesitter.query.get(language, 'indents') then
+          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end
+
+      local function can_install_parser()
+        if vim.fn.executable 'tree-sitter' == 0 then
+          return false
+        end
+
+        return vim.system({ 'tree-sitter', '--version' }):wait().code == 0
+      end
+
+      local should_install_parser = can_install_parser()
+      local available_parsers = require('nvim-treesitter').get_available()
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('vanilla-treesitter', { clear = true }),
+        callback = function(args)
+          local language = vim.treesitter.language.get_lang(args.match)
+          if not language then
+            return
+          end
+
+          local installed_parsers = require('nvim-treesitter').get_installed 'parsers'
+          if vim.tbl_contains(installed_parsers, language) then
+            treesitter_try_attach(args.buf, language)
+          elseif should_install_parser and vim.tbl_contains(available_parsers, language) then
+            require('nvim-treesitter').install(language):await(function()
+              treesitter_try_attach(args.buf, language)
+            end)
+          else
+            treesitter_try_attach(args.buf, language)
+          end
+        end,
+      })
+    end,
   },
 
   { import = 'plugins' },

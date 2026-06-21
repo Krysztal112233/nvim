@@ -5,6 +5,9 @@ return {
     dependencies = {
       'MunifTanjim/nui.nvim',
     },
+    condition = function()
+      return false
+    end,
     config = function()
       require('noice').setup {
         lsp = {
