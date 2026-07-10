@@ -4,9 +4,5 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  config = function()
-    require('flutter-tools').setup {
-      fvm = false,
-    }
-  end,
+  config = true,
 }
