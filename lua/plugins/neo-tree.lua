@@ -20,6 +20,10 @@ return {
       },
       follow_current_file = { enabled = true },
       use_libuv_file_watcher = true,
+      -- VSCode-style compact folders: collapse chains of single-child
+      -- directories (e.g. src/main/java/com/example/app) into one node
+      group_empty_dirs = true,
+      scan_mode = 'deep', -- prescan dirs so the whole chain collapses at once
     },
 
     nesting_rules = {

@@ -10,6 +10,10 @@ return {
         backend = 'zellij',
         enabled = true,
       },
+      tools = {
+        pi = {},
+        codex = {},
+      },
     },
   },
   keys = {
