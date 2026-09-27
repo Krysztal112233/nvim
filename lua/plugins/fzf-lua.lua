@@ -8,7 +8,14 @@ return {
     keymap = {},
   },
   config = function()
-    require('fzf-lua').setup { 'telescope' }
+    require('fzf-lua').setup {
+      'telescope',
+      -- Collapse parent dirs to 1 char in LSP pickers (references, definitions,
+      -- implementations, ...) so long relative paths such as
+      -- src/main/scala/dev/krysztal/.../Foo.scala stay readable. Actions still
+      -- resolve the full path (fzf-lua lengthens entries back on <CR>).
+      lsp = { path_shorten = true },
+    }
 
     local fzf = require 'fzf-lua'
 
