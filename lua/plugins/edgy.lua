@@ -62,9 +62,6 @@ return {
         size = { width = 0.3 },
         title = 'Sidekick',
         ft = 'sidekick_terminal',
-        open = function()
-          require('sidekick.cli').toggle 'opencode'
-        end,
       },
     },
   },
