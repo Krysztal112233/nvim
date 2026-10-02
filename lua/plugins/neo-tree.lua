@@ -16,6 +16,8 @@ return {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['d'] = 'trash',
+          ['D'] = 'delete',
         },
       },
       follow_current_file = { enabled = true },
