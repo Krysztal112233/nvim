@@ -1,10 +1,9 @@
 ;From MDeiml/tree-sitter-markdown & Helix
 ;
 ; Full replacement of $VIMRUNTIME/queries/markdown/highlights.scm (no
-; "; extends": query rules cannot be removed by extension). Sole difference
-; from upstream: the fence conceal rules below carry a #not-match? guard so
-; `fold`-marked blocks are exempt — otherwise the one visible line of a
-; closed fold is blanked by conceal_lines.
+; "; extends": query rules cannot be removed by extension). Fold-marked
+; blocks conceal fence/info text, but keep the lines: conceal_lines would
+; also hide the closed fold's title. Unfolded fences leave blank lines.
 ; Maintenance: diff against the runtime file after Neovim upgrades.
 (setext_heading
   (paragraph) @markup.heading.1
@@ -53,6 +52,14 @@
 
 ((fenced_code_block) @markup.raw.block
   (#set! priority 90))
+
+; Fold-marked blocks: hide fence/info text without hiding the fold title's line.
+(fenced_code_block
+  (fenced_code_block_delimiter) @markup.raw.block
+  (info_string) @label
+  (fenced_code_block_delimiter)? @markup.raw.block
+  (#match? @label "\<[fF][oO][lL][dD]\>")
+  (#set! conceal ""))
 
 ; Opening fence line: hide only when no fold marker is present
 (fenced_code_block
