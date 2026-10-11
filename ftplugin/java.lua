@@ -1,3 +1,9 @@
+-- nvim-jdtls only ships with the default profile; stay silent elsewhere.
+local ok, jdtls = pcall(require, 'jdtls')
+if not ok then
+  return
+end
+
 local function opts()
   local lsp = require 'core.lsp'
   local mason = vim.fs.joinpath(vim.fn.stdpath 'data', 'mason', 'packages')
@@ -33,4 +39,4 @@ local function opts()
   }
 end
 
-require('jdtls').start_or_attach(opts())
+jdtls.start_or_attach(opts())
