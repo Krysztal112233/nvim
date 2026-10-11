@@ -1,5 +1,12 @@
 vim.loader.enable()
 
+-- Profile selection: `--cmd "lua vim.g.nvim_profile='x'"` takes precedence;
+-- otherwise the Firenvim native host flag decides; fall back to 'default'.
+vim.g.nvim_profile = vim.g.nvim_profile or (vim.g.started_by_firenvim and 'firenvim' or 'default')
+if vim.g.nvim_profile == 'firenvim' then
+  vim.g.started_by_firenvim = true
+end
+
 require 'editor'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -136,7 +143,9 @@ require('lazy').setup({
     end,
   },
 
+  -- Shared plugins first; the selected profile supplies the final overrides.
   { import = 'plugins' },
+  { import = 'profiles.' .. vim.g.nvim_profile },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
