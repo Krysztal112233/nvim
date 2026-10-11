@@ -38,6 +38,42 @@ return {
       fzf.files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
 
+    -- Per-buffer LSP mappings (moved from editor.lua, which is now plugin-free).
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = vim.api.nvim_create_augroup('fzf-lsp-attach', { clear = true }),
+      callback = function(event)
+        local map = function(keys, func, desc, mode)
+          mode = mode or 'n'
+          vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+        end
+
+        -- Execute a code action, usually your cursor needs to be on top of an error
+        -- or a suggestion from your LSP for this to activate.
+        map('gra', fzf.lsp_code_actions, '[G]oto Code [A]ction', { 'n', 'x' })
+
+        -- Find references for the word under your cursor.
+        map('grr', fzf.lsp_references, '[G]oto [R]eferences')
+
+        -- Jump to the implementation of the word under your cursor.
+        --  Useful when your language has ways of declaring types without an actual implementation.
+        map('gri', fzf.lsp_implementations, '[G]oto [I]mplementation')
+
+        -- Jump to the definition of the word under your cursor.
+        --  To jump back, press <C-t>.
+        map('grd', fzf.lsp_definitions, '[G]oto [D]efinition')
+
+        -- Fuzzy find all the symbols in your current document.
+        map('gO', fzf.lsp_document_symbols, 'Open Document Symbols')
+
+        -- Fuzzy find all the symbols in your current workspace.
+        --  Similar to document symbols, except searches over your entire project.
+        map('gW', fzf.lsp_live_workspace_symbols, 'Open Workspace Symbols')
+
+        -- Jump to the type of the word under your cursor.
+        map('grt', fzf.lsp_typedefs, '[G]oto [T]ype Definition')
+      end,
+    })
+
     vim.cmd 'FzfLua register_ui_select'
   end,
 }
