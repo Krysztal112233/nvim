@@ -5,7 +5,10 @@ return {
   ---@class sidekick.Config
   opts = {
     nes = { enabled = false },
-
+    mux = {
+      backend = 'zellij',
+      enabled = true,
+    },
     -- add any options here
     cli = {
       win = {
