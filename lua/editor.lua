@@ -26,7 +26,7 @@ vim.o.relativenumber = true
 vim.g.bg = 'light'
 
 vim.opt.clipboard = 'unnamedplus'
-vim.g.clipboard = 'osc52'
+-- vim.g.clipboard = 'osc52'
 
 vim.o.list = true
 vim.opt.listchars = require('config').listchar.n
