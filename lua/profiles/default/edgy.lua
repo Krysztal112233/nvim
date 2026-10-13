@@ -46,14 +46,6 @@ return {
         title = 'Filesystem',
         ft = 'neo-tree',
       },
-
-      {
-        ---@diagnostic disable-next-line: assign-type-mismatch
-        title = 'Outline',
-        ft = 'Outline',
-        pinned = true,
-        open = 'Outline',
-      },
     },
     --- @type (Edgy.View.Opts|string)[]
     right = {

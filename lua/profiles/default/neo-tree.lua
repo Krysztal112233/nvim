@@ -11,7 +11,29 @@ return {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
 
+  ---@type neotree.Config
   opts = {
+    sources = { 'filesystem', 'buffers', 'git_status', 'document_symbols' },
+    source_selector = {
+      winbar = true,
+      sources = {
+        { source = 'filesystem', display_name = '  Files' },
+        { source = 'document_symbols', display_name = '  Symbols' },
+      },
+    },
+
+    popup_border_style = 'single',
+
+    document_symbols = {
+      window = {
+        mappings = {
+          ['<Tab>'] = 'noop',
+        },
+      },
+
+      follow_cursor = true,
+    },
+
     filesystem = {
       window = {
         mappings = {
