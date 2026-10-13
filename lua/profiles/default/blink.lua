@@ -22,7 +22,6 @@ return {
       },
       opts = {},
     },
-    'folke/lazydev.nvim',
     'onsails/lspkind.nvim',
   },
   --- @module 'blink.cmp'
